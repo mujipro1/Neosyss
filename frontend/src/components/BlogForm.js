@@ -42,7 +42,7 @@ const BlogForm = () => {
         formData.append('image', image);
 
         try {
-            const response = await fetch('http://localhost:5000/api/blogs', {
+            const response = await fetch('/api/blogs', {
                 method: 'POST',
                 body: formData,
             });
