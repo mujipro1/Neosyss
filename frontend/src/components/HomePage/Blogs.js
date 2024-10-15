@@ -19,10 +19,13 @@ const Blogs = () => {
         const response = await axios.get("/api/blogs");
 
         if (isMounted) {
-          // if (response.data.length >= 4){
-          // }
-          setLoading(false);
-          setBlogs(response.data.slice(0, 4));
+          if (response.data.length >= 4){
+            setLoading(false);
+            setBlogs(response.data.slice(0, 4));
+          }
+          else{
+            setLoading(true);
+          }
         }
       } catch (error) {
         console.error("Error fetching blogs:", error);
