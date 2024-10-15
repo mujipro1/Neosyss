@@ -1,0 +1,75 @@
+/* LoadingSkeleton.css */
+.loading-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between skeletons */
+  }
+  
+  .skeleton {
+    background-color: #ebebebba; /* Light grey background */
+    border-radius: 30px;
+    animation: pulse 1.3s infinite;
+    margin-top:10px;
+  }
+  
+  .large {
+    width: 100%; /* Full width for large card */
+    height: 200px; /* Set height as needed */
+  }
+  
+  .small {
+    width: 100%; /* Full width for small card */
+    height: 100px; /* Set height as needed */
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #ebebebba;
+    }
+    50% {
+      background-color: #d7d7d7eb; /* Slightly darker grey */
+    }
+    100% {
+      background-color: #ebebebba;
+    }
+  }
+  
+
+  .pic-large{
+    height: 40vh;
+  }
+
+  .heading-large-sk{
+    height: 30px;
+    margin-left: 5px;
+    width: 200px!important;
+  }
+  
+  .desc-large-sk{
+    height: 30px;
+    margin-left: 5px;
+    width: 300px!important;
+  }
+
+  .pic-small{
+    height: 30vh;
+  }
+
+  .heading-small-sk{
+    margin-left: 5px;
+    width: 50%;
+    height: 30px;
+  }
+  
+  .desc-small-sk{
+    margin-left: 5px;
+    height: 30px;
+    width: 70%;
+  }
+
+  .sk-button{
+    width: 150px;
+    margin-bottom: 50px;
+    height: 50px;
+    border-radius: 300px;
+  }

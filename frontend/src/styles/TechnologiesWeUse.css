@@ -1,0 +1,112 @@
+.borderA{
+    border-top: 1px solid rgb(192, 192, 192);
+}
+
+.borderB{
+    border-left : 1px solid rgb(192, 192, 192);
+    border-top: 1px solid rgb(192, 192, 192);
+}
+
+.rightSideBar, .leftSideBar{
+    min-height: 70vh;
+}
+
+.leftBarOption{
+    height: 70px;
+    min-width:100%;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.active{
+    background:linear-gradient(90deg,var(--main) 0%, transparent 60%);
+    font-weight: bold;
+}
+
+.head-div-services h1{
+    font-size: 4rem;
+    font-weight: bolder;
+    margin: 10px 30px;
+  }
+  .tech-para{
+    width: 65%;
+    margin: 0px 30px
+}
+  @media screen and (max-width: 760px) {
+    .tech-para{
+        margin: 0;
+        width: 100%;
+        text-align: justify;
+    }
+
+    .head-div-services h1{
+      font-size: 4rem;
+      line-height: 2.3rem;
+      font-weight: bolder;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+   
+    .head-div-services h1{
+      font-size: 2.5rem;
+      font-weight: bolder;
+      text-align: start;
+      margin-left: 0;
+    }
+  }
+
+
+
+  /* Mobile-specific styles */
+.mobile-view {
+    padding: 20px;
+}
+
+/* Horizontal scrollable bar for section names */
+.horizontal-scrollbar {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+}
+
+.option-horizontal {
+    display: inline-block;
+    padding: 15px 0px;
+    margin-right: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.active-horizontal {
+    font-weight: bold;
+    border-bottom: 2px solid var(--main);
+}
+
+.content-mobile {
+    border-top: 1px solid rgb(192, 192, 192);
+}
+
+
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 900px) {
+    .horizontal-scrollbar {
+        justify-content: flex-start;
+    }
+
+   
+
+    .option-horizontal {
+        width: 190px;
+    }
+}

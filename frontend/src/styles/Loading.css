@@ -1,0 +1,42 @@
+/* Loading.css */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Or any color you want for the loading screen */
+    z-index: 9999; /* Ensure it's on top of everything */
+  }
+  
+  .loading-logo {
+    max-width: 100%;
+    object-fit: cover;
+    animation: loading 5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .loading-logo {
+      height: 100%; /* Adjust size as needed */
+      width: auto;
+      object-fit: cover;
+    }
+  }

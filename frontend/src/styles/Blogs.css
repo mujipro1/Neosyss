@@ -1,0 +1,117 @@
+.blogs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+  }
+  
+  .left-section {
+    flex: 2;
+    margin-right: 20px;
+  }
+  
+  .bloghead h1{
+    font-size:4rem;
+    padding: 0px 35px; 
+    font-weight: 700;
+  }
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-para-x{
+    width: 70%;
+    padding: 37px; 
+  }
+
+  .blog-main-c{
+    padding: 50px;
+  }
+  
+  @media (max-width: 768px) {
+    .blogs-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+    
+    
+  .blog-main-c{
+    padding: 0 20px;
+  }
+    .blog-para-x{
+      width: 100%;
+      text-align: justify;
+    }
+
+    .left-section, .right-section {
+      flex: none;
+      margin-right: 0;
+    }
+  
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  
+    /* Stacking blog cards vertically in mobile view */
+    .large-card, .small-card {
+      width: 100%;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /* Image on top, text on bottom in mobile view */
+    .blog-large-card, .blog-small-card {
+      flex-direction: column;
+    }
+  
+    .blog-image-large, .blog-image-small {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    .blog-text-large, .blog-text-small {
+      padding-top: 0;
+    }
+    .bloghead h1{
+      font-size:2.5rem;
+      font-weight: 700;
+      padding:10px 5px;
+      margin-left: 30px ;
+    }
+  }
+
+
+
+  .view-all-button{
+    margin: 30px 0;
+    font-size: 1.1rem;
+    padding: 8px 20px;
+    border-radius: 40px;
+    background-color: var(--main);
+    color: white;
+    transition: all .3s ease-in-out;
+  }
+
+  .view-all-button:hover{
+    color: var(--main);
+    background-color: rgb(227, 227, 227);
+    #view-all-svg{
+      fill: var(--main);
+    }  
+  }
+
+  #view-all-svg{
+    margin:0 0 0 30px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in-out;
+    fill: white;
+  }

@@ -1,0 +1,109 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1003;
+    transition: all .5s ease-in-out;
+    transition: background-color 0.4s, top 0.4s;
+  }
+  
+  .navbar-transparent {
+    background-color: transparent;
+    color: white;
+  }
+  
+  .navbar-solid {
+    background-color: #fff;
+    border-bottom: 1px solid #c9cbce;
+  }
+  
+  .navbar-hidden {
+    top: -80px; 
+  }
+
+  .navbar-transparent .nav-link {
+    font-size: 18px;
+    margin-right: 20px;
+    transition: color 0.2s ease-in-out;
+    margin-left: 20px;
+    color: white;
+    cursor: pointer;
+    transition: all .5s;
+  }
+  
+  /* Other existing styles */
+  .navbar-solid .nav-link {
+    font-size: 18px;
+    margin-left: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: #494949fa;
+    /* margin-top:15px; */
+    transition: color 0.2s ease-in-out;
+    transition: all .5s;
+  }
+  
+  .navbar .nav-link:hover {
+    color: var(--main);
+  }
+  
+  .navbar .nav-link.active {
+    color: var(--main);
+    font-weight: 600;
+  }
+  
+  .navbar .navbar-toggler {
+    border: none !important;
+    outline: none !important;
+  }
+
+  /* border shouldnt be there on clicking too */
+    .navbar .navbar-toggler:focus {
+        outline: none !important;
+        border: none !important;
+    }
+  
+  .navbar .toggle-btn {
+    cursor: pointer;
+    position: relative;
+    z-index: 1100;
+  }
+  
+  .navbar .toggle-btn .bar {
+    width: 25px; /* Adjust width if needed */
+    height: 3px;
+    margin: 7px 0;
+    background-color: #0b0b0b;
+    transition: all .2s ease-in-out;
+  }
+  .navbar-transparent .navbar-toggler .toggle-btn .bar{
+    background-color: white;
+  }
+  /* Ensure checkbox is not visible and has no border */
+  #toggle-menu {
+    display: none; /* Hide the checkbox */
+  }
+  
+  #toggle-menu:focus {
+    outline: none; /* Remove outline */
+  }
+  
+  /* Show the menu when toggled */
+  .collapse.navbar-collapse.show {
+    display: flex !important; /* Show when toggled */
+  }
+  
+  /* Mobile specific styles */
+  @media (max-width: 991px) {
+    .collapse.navbar-collapse {
+      display: none; /* Hidden by default */
+      flex-direction: column; /* Stack items vertically */
+      text-align: center;
+    }
+  }
+  
+  .navlogo{
+    width: auto;
+    height: 50px;
+  }

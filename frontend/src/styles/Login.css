@@ -1,0 +1,54 @@
+.login-form-cont{
+    box-shadow: 0 0 10px 0 #ddd;
+    height: 60vh;
+}
+
+.login-label{
+    font-size: small;
+    margin-left: 10px;
+    color: var(--main);
+}
+.login-heading{
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* loginForm.css */
+.login-form-container {
+    position: relative;
+    background-image: url('../../public/blog-background.png'); /* Replace with the correct path */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Full height of the viewport or adjust as necessary */
+}
+
+.login-form-cont {
+    background: rgba(255, 255, 255, 0.461); /* White background with transparency */
+    padding: 2rem; /* Add some padding around the form */
+    border-radius: 25px; /* Round the corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+    backdrop-filter: blur(20px); /* Add a blur effect to the background */
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 768px){
+    .login-form-container{
+        height: 110vh;
+    }
+    .login-form-cont{
+        margin-top: 0;
+        height: 50vh;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .login-heading{
+        font-size: 2rem;
+        padding: 0;
+        margin: 0;
+    }
+    
+}
+
+.login-btn-cont .hover-button{
+    height: 40px!important;
+}

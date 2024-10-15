@@ -1,0 +1,115 @@
+.hover-button-static {
+    position: relative;
+    overflow: hidden; /* Prevents text overflow during animation */
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 8px 5px;
+    height: 43px;
+    font-size: 0.9rem;
+    width: 210px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center;    /* Center text vertically */
+    text-align: center;     /* Ensure text alignment is center */
+  }
+.dark-static{
+    background-color: rgba(229, 230, 233, 0.495);
+    color: #000000;
+}
+
+.dark-static:hover {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    box-shadow: 0px 5px 10px var(--main);
+    }
+  
+.light-static{
+    background-color: var(--main);
+    color: #000000;
+    }
+
+.light-static:hover {
+    background-color: rgb(241, 241, 241);
+    color: black;
+    box-shadow: 0px 5px 10px var(--main);
+    }
+
+
+  .text-btn-center-static,
+  .text-top-static {
+    position: absolute;     /* Keep this to allow hover animations */
+    white-space: nowrap;    /* Prevent text from wrapping */
+    transition: transform 0.3s ease-in-out;
+    top: 25%;               /* Initial position */
+    text-align: center;
+    width: 100%;            /* Ensure text spans the full width for proper alignment */
+  }
+  
+  /* Text Initially Hidden at Top */
+  .text-top-static {
+    top: -20%; /* Position the text above the button */
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  }
+  
+  
+  
+  /* Hover Effects */
+  .hover-button-static:hover .text-btn-center-static {
+    transform: translateY(150%); /* Moves text down on hover */
+  }
+  
+  .hover-button-static:hover .text-top-static {
+    transform: translateY(90%); /* Moves text to the center on hover */
+  }
+  
+  /* Hover Out Effect (Resets the transition when hover is removed) */
+  .hover-button-static:not(:hover) .text-btn-center-static {
+    transform: translateY(0); /* Brings text back to its original position */
+  }
+  
+  .hover-button-static:not(:hover) .text-top-static {
+    transform: translateY(-100%); /* Moves text back to the top */
+  }
+  
+  @media screen and (max-width: 760px) {
+    .hover-button-static {
+      padding: 10px 15px;
+      height: 42px;
+      width: 190px;
+    }
+  
+    /* Hover effects for smaller screens */
+    .hover-button-static:hover .text-btn-center-static {
+      transform: translateY(150%); /* Moves text down on hover */
+    }
+  
+    .hover-button-static:hover .text-top-static {
+      transform: translateY(85%); /* Moves text to the center on hover */
+    }
+  }
+  
+  @media screen and (max-width: 460px) {
+    .hover-button-static {
+      padding: 10px 15px;
+      height: 40px;
+      width: 180px;
+      font-size: 1rem;
+    }
+  
+    .text-btn-center-static {
+      top: 18%;
+    }
+  
+    /* Hover effects for smaller screens */
+    .hover-button-static:hover .text-btn-center-static {
+      transform: translateY(120%); /* Moves text down on hover */
+    }
+  
+    .hover-button-static:hover .text-top-static {
+      transform: translateY(65%); /* Moves text to the center on hover */
+    }
+  }
+  

@@ -1,0 +1,129 @@
+.accordion-container {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+}
+
+.missionimg {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+.accordion-header h4 {
+  margin: 0;
+  color: var(--main);
+}
+
+#svg-dropdown {
+  color: var(--main);
+  fill: var(--main);
+}
+
+.accordion-header .arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header .arrow.open {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  margin-bottom: 0;
+  transition: all 0.5s ease;
+}
+
+.accordion-content.show {
+  min-height: 130px;
+  opacity: 1;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+
+.text-align-center {
+  text-align: justify;
+  padding: 10px 0px;
+}
+
+.mission-head {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .mission-head {
+      font-size: 2.5rem;
+      padding: 0 20px;
+      text-align: start;
+  }
+  .accordion-content.show {
+    min-height: 200px;
+  }
+  
+  
+  .text-align-center {
+      padding: 10px;
+  }
+}
+
+.mission-margin {
+  position: relative;
+  margin-top: 150px;
+}
+
+.mission-img {
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  transform: scaleX(-1);
+  right: -70px;
+  opacity: .7;
+  top: -240px;
+}
+
+.mission-small-sec {
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.mission-p{
+  width: 70%;
+  text-align: end;
+}
+
+@media screen and (max-width: 768px) {
+  .mission-img {
+      top: -70px;
+      right: 0;
+      width: 80%;
+  }
+  .mission-p{
+    width: 100%;
+    text-align: justify;
+    padding: 10px 10px 10px 25px;
+  }
+  .mission-margin {
+      margin-top: 100px;
+  }
+  .mission-small-sec {
+      width: 100%;
+  }
+}

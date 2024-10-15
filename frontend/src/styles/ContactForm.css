@@ -1,0 +1,99 @@
+/* SlidingPanel.css */
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    height: 100%;
+    width: 500px;
+    background-color: rgb(24, 24, 26);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s ease; /* Smooth sliding effect */
+    z-index: 10200;
+  }
+  @media (max-width: 768px) {
+    .sliding-panel{
+      width: 300px;
+    }
+
+  .text-grey{
+    display: none;
+  }
+  }
+  .sliding-panel.open {
+    right: 0; /* Slide in when open */
+  }
+  
+  .panel-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    height: 100%;
+  }
+  
+  .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .text-grey{
+    color: grey;
+    font-size: medium;
+  }
+  
+  .text-grey-sec{
+    color: grey;
+    font-size: medium;
+  }
+  
+  .input-form{
+    background-color: rgb(42, 43, 48);
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 5px 18px;
+    font-size: medium;
+    border-radius: 30px;
+    width: 100%;
+  }
+  
+  /* .input-form:focus{
+    background-color: white;
+    color: black;
+  }
+   */
+  .rad{
+    border-radius: 20px;
+    padding-top: 10px;
+  }
+
+  .select{
+    color: white;
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+
+  .select option{
+    color: grey;
+  }
+
+  .div-select{
+    padding: 3px 0;
+    padding-right: 20px;
+  }
+
+  .button-form{
+    width: 100%;
+    height: 40px;
+    background-color: var(--main);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }

@@ -1,0 +1,246 @@
+/* General styling */
+.dev-cont{
+  background-color: #000; /* Black background */
+  color: #fff; /* White text for the body */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.head-div{
+  background-color: #000; 
+  color: #fff;
+}
+
+/* Container for the whole process */
+.development-process-container {
+  padding: 50px 20px;
+}
+
+/* Heading for the development process */
+.development-process-heading {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--main);
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+/* Left Section - layout and positioning */
+.left-section {
+  width: 50%;
+  padding: 20px;
+  height: auto; /* Remove internal scroll */
+}
+
+/* Right Section - keeps images in place */
+.right-section {
+  width: 50%;
+  position: sticky;
+  top: 20px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Individual section styling with scroll snapping */
+.section {
+  margin-bottom: 150px; /* Adjust margin to control spacing */
+  scroll-snap-align: start; /* Align each section at the start */
+  padding: 50px 0; /* Add padding for extra space around each section */
+  min-height: 60vh; /* Each section takes up part of the viewport height */
+  border-bottom: 1px solid #333; /* Add subtle bottom border for sections */
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 2.5rem;
+  color: var(--main);
+  margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+.section-paragraph {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #aaa; /* Light gray for the paragraph text */
+}
+
+.dev-head{
+  color: var(--main);
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.head-div h1{
+  font-size: 4rem;
+  font-weight: bolder;
+}
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .left-section, .right-section {
+    width: 100%;
+  }
+
+
+  .right-section {
+    height: auto;
+    position: static;
+    margin-bottom: 20px;
+  }
+}
+/* Image container styling */
+.image-container {
+  width: 550px;
+  height:95%;
+  position: absolute;
+  
+  display: flex;
+  justify-content: center; /* Horizontally center image */
+  align-items: center; /* Vertically center image */
+  overflow: hidden; /* Ensure the overflow gets hidden for cropped effect */
+}
+
+/* Image styling */
+.section-image {
+  width: 60%; /* Adjust width, crop instead of shrinking */
+  height: 90%; /* Keep height at 100% of the container */
+  position: absolute; /* Stack images on top of each other */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Crop the image instead of shrinking */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+  border-radius: 200px; /* Add rounded corners */
+}
+
+/* Active class for the image that is visible */
+.section-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+
+@media screen and (max-width: 950px) {
+  .image-container {
+    width: 500px;
+    height:80%;
+  }
+  .dev-head{
+    font-size: 2.5rem;
+    font-weight: bolder;
+  }
+  .head-div h1{
+    font-size: 2.5rem;
+    line-height: 2.4rem;
+    font-weight: bolder;
+  }
+}
+
+/* Mobile-specific styles */
+
+.horizontal-scroll-container {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Snap scrolling for smoother experience */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  /* hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0px 20px;
+  gap: 20px; /* Add spacing between sections */
+}
+
+.mobile-section {
+  flex: 0 0 90%; /* Each section takes 90% of the viewport width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  scroll-snap-align: center; /* Snap to the center of the viewport */
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #000;
+  color: #fff;
+}
+
+.mobile-image {
+  width: 200px;
+  height: 300px; /* Adjust height */
+  object-fit: cover;
+  border-radius: 200px;
+  margin-bottom: 20px;
+}
+
+.mobile-title {
+  font-size: 2rem;
+  color:var(--main);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mobile-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  color: #e3e3e3;
+}
+
+@media (max-width: 767px) {
+  /* Ensure the layout is mobile-friendly */
+  .mobile-section {
+    flex: 0 0 100%; /* Each section takes the full width */
+  }  
+
+}
+
+
+/* for the smallest mobile
+ */
+@media (max-width: 400px) {
+  .dev-head{
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  }
+
+  #arrow-svg{
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    fill: white;
+  }
+
+
+  .dots-container {
+    display: flex;
+    background-color: black;
+    padding: 0px 0px 30px 0px;
+    transform: translateY(-5px);
+    justify-content: center;
+  }
+  
+  .dotdot {
+    height: 8px;
+    width: 8px;
+    margin: 0 3px;
+    background-color: lightgray;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dotdot.active {
+    background: linear-gradient(45deg, var(--main), black);
+    /* background-color: var(--main); */
+  }
+
+  .dev-process{
+    width: auto;
+    height: 200px;
+  }

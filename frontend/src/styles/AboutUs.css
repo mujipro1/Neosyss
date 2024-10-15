@@ -1,0 +1,57 @@
+/* General layout and responsiveness */
+.left-div {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.left-content {
+    position: relative;
+    text-align: left;
+}
+
+.heading {
+    
+
+    font-size: 8rem;
+    font-weight: bold;
+    background: linear-gradient(180deg,  #00e077, #91eae4);
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    background-size: 100% 200%; /* Larger vertical size for the scrolling effect */
+    background-position: 0 0; /* Initial position */
+    transition: background-position 0.1s ease-out;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.right-div {
+    padding-top: 50px;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+hr {
+    border: 1px solid #ccc;
+}
+
+html, body {
+    height: 100%;
+}
+
+.heading2{
+    padding: 10px 20px;
+    color: black;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}

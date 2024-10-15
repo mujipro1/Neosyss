@@ -1,0 +1,105 @@
+.hover-button {
+  position: relative;
+  overflow: hidden; /* Prevents text overflow during animation */
+  display: inline-block;
+  background-color: rgba(229, 230, 233, 0.495);
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 8px 5px;
+  height: 43px;
+  font-size: 0.9rem;
+  width: 210px;
+  border-radius: 100px;
+  text-align: left; /* Ensure text is aligned to the left */
+  padding-left: 10px; /* Padding to push text away from the left edge */
+}
+
+/* Text aligned left */
+.text-btn-center,
+.text-top {
+  position: absolute;
+  left: 0; /* Ensure it's aligned to the left */
+  padding-left: 70px; /* Padding for left alignment */
+  white-space: nowrap; /* Prevents text from wrapping */
+  transition: transform 0.3s ease-in-out;
+  top: 25%;
+}
+
+/* Text Initially Hidden at Top */
+.text-top {
+  top: -20%; /* Position the text above the button */
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.hover-button:hover {
+  background-color: rgb(26, 26, 26);
+  color: white;
+  box-shadow: 0px 5px 10px var(--main);
+}
+
+/* Hover Effects */
+.hover-button:hover .text-btn-center {
+  transform: translateY(150%); /* Moves text down on hover */
+}
+
+.hover-button:hover .text-top {
+  transform: translateY(90%); /* Moves text to the center on hover */
+}
+
+/* Hover Out Effect (Resets the transition when hover is removed) */
+.hover-button:not(:hover) .text-btn-center {
+  transform: translateY(0); /* Brings text back to its original position */
+}
+
+.hover-button:not(:hover) .text-top {
+  transform: translateY(-100%); /* Moves text back to the top */
+}
+
+@media screen and (max-width: 760px) {
+  .hover-button {
+    padding: 10px 15px;
+    height: 42px;
+    width: 190px;
+  }
+
+  /* Hover effects for smaller screens */
+  .hover-button:hover .text-btn-center {
+    transform: translateY(150%); /* Moves text down on hover */
+  }
+
+  .hover-button:hover .text-top {
+    transform: translateY(85%); /* Moves text to the center on hover */
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .hover-button {
+    padding: 10px 15px;
+    height: 40px;
+    width: 180px;
+    font-size: 1rem;
+  }
+
+  .text-btn-center{
+    top: 18%;
+  }
+
+  /* Hover effects for smaller screens */
+  .hover-button:hover .text-btn-center {
+    transform: translateY(120%); /* Moves text down on hover */
+  }
+
+  .hover-button:hover .text-top {
+    transform: translateY(65%); /* Moves text to the center on hover */
+  }
+}
+
+
+.icon-static{
+  margin: 0 10px;
+  width: 20px;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
