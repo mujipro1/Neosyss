@@ -107,9 +107,9 @@ app.post('/api/contact', (req, res) => {
                 <div><strong>Date:</strong> ${currentDate}</div>`,
         };
         // Send mail (you can uncomment this when you want to send real emails)
-        // transporter.sendMail(mailOptions, (error, info) => {
-        //     if (error) console.error('Error sending email:', error);
-        // });
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) console.error('Error sending email:', error);
+        });
     });
 });
 
