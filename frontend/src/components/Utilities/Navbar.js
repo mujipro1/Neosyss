@@ -31,8 +31,11 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
+      if (isAtTopComp) return; // Exit if at top component is true
+    
       const currentScrollY = window.pageYOffset;
-      if (!isHovering) { // Check if not hovering
+    
+      if (!isHovering) {
         if (currentScrollY > lastScrollY) {
           setIsNavbarVisible(false);
         } else if (currentScrollY < lastScrollY) {
@@ -47,9 +50,10 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
           }, 1500);
         }
       }
+      
       lastScrollY = currentScrollY;
     };
-  
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
   
     return () => {

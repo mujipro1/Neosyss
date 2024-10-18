@@ -60,3 +60,52 @@
     height: 40px!important;
 }
 
+
+
+
+/* General styling for the modal */
+.delete-confirmation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it is above everything */
+    backdrop-filter: blur(5px); /* Apply blur to the background */
+}
+
+/* Styling for the confirmation box itself */
+.confirmation-box {
+    background-color: #fff; /* White box */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    z-index: 10000; /* Ensure the box is above the blurred background */
+    animation: fadeIn 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Add some spacing between the buttons */
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Fade-in animation for the modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
