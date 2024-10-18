@@ -31,8 +31,8 @@ const BlogCard = ({ blog = {}, type }) => {
     return `${day}/${month}/${year}`;
   };
 
-  const truncatedTitle = truncateText(title, type === 'small' ? 5 : 15);
-  const truncatedDescription = truncateText(description, type === 'small' ? 12 : 40);
+  const truncatedTitle = truncateText(title, type === 'small' ? 4 : 15);
+  const truncatedDescription = truncateText(description, type === 'small' ? 8 : 40);
 
   // Handle click event to navigate to the blog details page
   const handleCardClick = () => {
