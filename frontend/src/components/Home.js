@@ -8,6 +8,7 @@ import Carousel from './HomePage/Carousel';
 import DevelopmentProcess from './HomePage/DevelopmentProcess';
 import OurMission from './HomePage/OurMission';
 import Footer from './Utilities/Footer';
+import Loading from './Utilities/Loading';
 
 const slides = [
   {
@@ -32,6 +33,11 @@ const slides = [
 
 const Home = () => {
   return (
+    <>
+
+    <div className="loading-home">
+      <Loading />
+    </div>
     <>
        <MyNav isHomePage={true}/>
        <Carousel images={slides} interval={2000} />
@@ -58,6 +64,7 @@ const Home = () => {
 
         <Blogs/>
         <Footer />
+     </>
      </>
    
   );

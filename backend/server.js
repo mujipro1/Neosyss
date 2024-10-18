@@ -71,6 +71,7 @@ app.get('/api/blogs', (req, res) => {
 
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(username);
 
     query = 'SELECT * FROM users WHERE username = ? AND password = ?';
     db.query(query, [username, password], (err, results) => {
@@ -127,9 +128,9 @@ app.post('/api/contact', (req, res) => {
                    <div><strong>Date:</strong> ${currentDate}</div>`,
         };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) console.error('Error sending email:', error);
-        });
+        // transporter.sendMail(mailOptions, (error, info) => {
+            // if (error) console.error('Error sending email:', error);
+        // });
     });
 });
 

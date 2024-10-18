@@ -77,3 +77,25 @@
   width: 10px;
 }
  */
+
+
+ .loading-home{
+  z-index: 11000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: disappear 2s ease-in-out 2s forwards;
+ }
+
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+      display: block;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
