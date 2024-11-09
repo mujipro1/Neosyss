@@ -127,7 +127,6 @@ const TechnologiesWeUse = () => {
       <div className="head-div-services mt-5 px-5 pt-5">
         <h1 className="mt-5">
           <span className="head-highlight">Technologies</span> we use
-          <span className="head-highlight">.</span>
         </h1>
       </div>
       <p className="tech-para pb-5 pt-3 px-5">

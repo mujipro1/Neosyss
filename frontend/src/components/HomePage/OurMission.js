@@ -63,14 +63,14 @@ const OurMission = () => {
         alt="Mission Elements"
       />
       <div className="mission-small-sec">
-        <div className="d-flex mt-5 justify-content-end">
+        <div className="d-flex  justify-content-start">
           <h1 className="mission-head my-4 mt-5">
             Our <span className="head-highlight">Mission</span> & Values
-            <span className="head-highlight">.</span>
+            <span className="head-highlight"></span>
           </h1>
         </div>
 
-        <div className="row mb-4 mx-2 mission-p d-flex justify-content-center text-align-center">
+        <div className="row mb-4 mx-2 mission-p d-flex justify-content-start text-align-start">
           Our mission focuses on client-first approach, prioritizing
           satisfaction, trust, and ethical responsibility. We embrace new technoligies 
           along with giving value to innovation and excellence. Long-term partnerships 

@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import MyNav from './Utilities/Navbar';
 import ScrollingWords from './HomePage/ScrollingWords';
 import TechnologiesWeUse from './HomePage/TechnologiesWeUse';
@@ -12,62 +13,60 @@ import Loading from './Utilities/Loading';
 
 const slides = [
   {
-    image: '/videos/code_your_future_today.mp4',
+    image: '/videos/code_your_future_today.webm',
     type: 'video',
-    headline: 'Code Your Future, Today.',
+    headline: 'Code Your Future, Today',
     subHeadline: 'Your dedicated digital partners, from infancy to dreams!',
   },
   {
-    image: '/videos/tired_of_finding_freelancers.mp4',
+    image: '/videos/tired_of_finding_freelancers.webm',
     type: 'video',
     headline: 'Tired of Freelancing Platforms?',
     subHeadline: 'Schedule a Meeting Today',
   },
   {
-    image: '/videos/your_software_our_creation.mp4',
+    image: '/videos/your_software_our_creation.webm',
     type: 'video',
-    headline: 'Your Software, Our Creation.',
+    headline: 'Your Software, Our Creation',
     subHeadline: 'Custom-built software, tailored to your needs',
   },
 ];
 
 const Home = () => {
+  const devProcessRef = useRef(null); // Ref for #dev-process
+
   return (
     <>
-
-    <div className="loading-home">
-      <Loading />
-    </div>
-    <>
-       <MyNav isHomePage={true}/>
-       <Carousel images={slides} interval={2000} />
-       <ScrollingWords />
-       <div id="mission">
+      <div className="loading-home">
+        <Loading />
+      </div>
+      <>
+        <MyNav isHomePage={true} devProcessRef={devProcessRef} /> {/* Pass ref to MyNav */}
+        <Carousel images={slides} interval={2000} />
+        <ScrollingWords />
+        <div id="mission">
           <OurMission />
-       </div>
-       <DevelopmentProcess />
-       <div id="services">
+        </div>
+        <div id="dev-process" ref={devProcessRef}>
+          <DevelopmentProcess />
+        </div>
+        <div id="services">
           <ScrollingWords />
         </div>
-
-       <div id="technologies">
-          <TechnologiesWeUse/>        
+        <div id="technologies">
+          <TechnologiesWeUse />
         </div>
-        
-       <div id="industries">
-          <IndustriesWeServe/> 
+        <div id="industries">
+          <IndustriesWeServe />
         </div>
-
         <div className="bloglines-img-cont my-5">
-         <img src="/lines.png" alt="Blog" className='blog-lines' />
+          <img src="/lines.png" alt="Blog" className="blog-lines" />
         </div>
-
-        <Blogs/>
+        <Blogs />
         <Footer />
-     </>
-     </>
-   
+      </>
+    </>
   );
-}
+};
 
 export default Home;

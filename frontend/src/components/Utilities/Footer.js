@@ -41,12 +41,9 @@ const Footer = () => {
         <footer className="footer p-5">
             <div className="row footer-top px-5 pt-3">
                 <div className="col-md-4">
-                    <div className="d-flex align-items-center my-3 justify-content-center">
-                        <div className="dot-footer"></div>
-                        <div className=" mx-3 footer-head">Company</div>
-                    </div>
                     <div className="footer-content d-flex align-items-center my-3 justify-content-center text-start flex-column">
                         <div>
+                        <div className="mb-3 footer-head">Company</div>
                             <div className="list-item">About Us</div>
                             <div className="list-item" onClick={() => scrollToSection('mission')}>Mission and Values</div>
                             <div className="list-item" onClick={() => scrollToSection('technologies')}>Technologies</div>
@@ -57,12 +54,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="d-flex align-items-center my-3 justify-content-center">
-                        <div className="dot-footer"></div>
-                        <div className=" mx-3 footer-head">Services</div>
-                    </div>
                     <div className="footer-content d-flex align-items-center my-3 mx-2 justify-content-center text-start flex-column">
                         <div>
+                            <div className="mb-3 footer-head">Services</div>
                             <div className="list-item" onClick={() => scrollToSection('services')}>AI & Machine Learning</div>
                             <div className="list-item" onClick={() => scrollToSection('services')}>Mobile App Development</div>
                             <div className="list-item" onClick={() => scrollToSection('services')}>Web Development</div>
@@ -73,15 +67,15 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="d-flex align-items-center my-3 justify-content-center">
-                        <div className="dot-footer"></div>
-                        <div className=" mx-3 footer-head">Contact</div>
-                    </div>
                     <div className="footer-content d-flex align-items-center my-3 justify-content-center text-start flex-column">
                         <div>
+                            <div className="mb-3 footer-head">Contact</div>
                             <div className="list-item">info@neosyss.com</div>
                             <div className="list-item">Call us at: </div>
-                            <div className="list-item"> (415) 599 0916</div>
+                            <div className="list-item"> +1 (321) 350-0558 </div>
+                            <div className="list-item"> </div>
+                            <div className="list-item mt-4"> Address:<br/> 7901 4th St N # 22651
+                            St. Petersburg, FL 33702</div>
                         </div>
                     </div>
                 </div>
@@ -93,7 +87,7 @@ const Footer = () => {
             <div className="row footer-bottom">
                 <div className="col-md-4 text-start d-flex align-items-end justify-content-start">
                     <div>
-                        <div className="text-light"> (415) 599 0916</div>
+                        <div className="text-light"> +1 (321) 350-0558 </div>
                         <div className="text-light">info@neosyss.com</div>
                     </div>
                 </div>
@@ -146,7 +140,7 @@ const Footer = () => {
                 <div className="col-md-4 mb-2 text-start d-flex align-items-center justify-content-center ">
                     <div>
                         <div className="text-center">info@neosyss.com</div>
-                        <div className="text-center"> (415) 599 0916</div>
+                        <div className="text-center"> +1 (321) 350-0558 </div>
                     </div>
                 </div>
                

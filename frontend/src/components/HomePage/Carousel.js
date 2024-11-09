@@ -79,6 +79,7 @@ const Carousel = ({ images }) => {
     };
   }, [initialPos]);
 
+
   return (
     <>
       <div className="carousel">
@@ -101,7 +102,7 @@ const Carousel = ({ images }) => {
               <div className="carousel-content">
                 {image.type === 'video' ? (
                   <video autoPlay loop muted>
-                    <source src={image.image} type="video/mp4" />
+                    <source src={image.image} type="video/webm" />
                   </video>
                 ) : (
                   <img src={image.image} alt={`Slide ${index + 1}`} />

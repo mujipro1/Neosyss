@@ -11,7 +11,7 @@ const BlogPageSep = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('/api/blogs');
+        const response = await axios.get('https://localhost:5000/api/blogs');
         setBlogs(response.data);
       } catch (error) {
         console.error('Error fetching blogs:', error);

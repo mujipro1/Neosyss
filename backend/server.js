@@ -49,6 +49,7 @@ const transporter = nodemailer.createTransport({
 // Get all blogs
 app.get('/api/blogs', (req, res) => {
     db.query('SELECT * FROM blogs ORDER BY date DESC', (err, results) => {
+        console.log(results);
         if (err) return res.status(500).json({ error: err.message });
         res.json(results);
     });

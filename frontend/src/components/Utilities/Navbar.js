@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import ContactForm from '../HomePage/ContactForm';
 import '../../styles/Navbar.css';
 
-const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
+const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef }) => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHovering, setIsHovering] = useState(false); // New state for hover
+  const [isHovering, setIsHovering] = useState(false);
+  const [isInDevProcess, setIsInDevProcess] = useState(false); // Track if in #dev-process
   const topSectionRef = useRef(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
 
@@ -15,7 +16,8 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
 
   useEffect(() => {
     const topSectionNode = topSectionRef.current;
-  
+
+    // Intersection Observer for top section
     const observer = new IntersectionObserver(([entry]) => {
       if (!isAtTopComp) {
         setIsAtTop(entry.isIntersecting);
@@ -23,18 +25,30 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
         setIsAtTop(false);
       }
     });
-  
     if (topSectionNode) {
       observer.observe(topSectionNode);
     }
-  
+
+    // Intersection Observer for #dev-process section
+    const devProcessObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsInDevProcess(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // Adjust threshold as needed
+    );
+    if (devProcessRef.current) {
+      devProcessObserver.observe(devProcessRef.current);
+    }
+
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
-      if (isAtTopComp) return; // Exit if at top component is true
-    
+      if (isAtTopComp || isInDevProcess) {
+        setIsNavbarVisible(false);
+        return;
+      }
+
       const currentScrollY = window.pageYOffset;
-    
       if (!isHovering) {
         if (currentScrollY > lastScrollY) {
           setIsNavbarVisible(false);
@@ -50,26 +64,29 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
           }, 1500);
         }
       }
-      
+
       lastScrollY = currentScrollY;
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-  
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (topSectionNode) {
         observer.unobserve(topSectionNode);
       }
+      if (devProcessRef.current) {
+        devProcessObserver.unobserve(devProcessRef.current);
+      }
     };
-  }, [isAtTopComp, isHovering]); // Add isHovering to dependencies
+  }, [isAtTopComp, isHovering, isInDevProcess, devProcessRef]);
 
   // Handle navigation to sections
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const offsetTop = section.getBoundingClientRect().top + window.scrollY; // Get the top position of the section
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' }); 
+      const offsetTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
   };
 
@@ -80,10 +97,10 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
 
   return (
     <div ref={topSectionRef}>
-      <nav 
+      <nav
         className={`navbar navbar-expand-lg ${isAtTop ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
-        onMouseEnter={() => setIsHovering(true)} // Set hovering to true on mouse enter
-        onMouseLeave={() => setIsHovering(false)} // Set hovering to false on mouse leave
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
@@ -101,13 +118,10 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
           <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mx-4">
               {!isHomePage && (
-                <>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/home">Home</a>
-                  </li>
-                </>
+                <li className="nav-item">
+                  <a className="nav-link" href="/home">Home</a>
+                </li>
               )}
-            
               {isHomePage && (
                 <>
                   <li className="nav-item">
@@ -124,9 +138,9 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false }) => {
                   </li>
                 </>
               )}
-                <li className="nav-item">
-                  <a id='contact' className="nav-link" onClick={openPanel} style={{ marginRight: "35px", cursor: 'pointer' }}>Contact</a>
-                </li>
+              <li className="nav-item">
+                <a id="contact" className="nav-link" onClick={openPanel} style={{ marginRight: "35px", cursor: 'pointer' }}>Contact</a>
+              </li>
             </ul>
           </div>
         </div>

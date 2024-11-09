@@ -18,7 +18,7 @@ const ScrollingWords = () => {
     let animationFrameId;
 
     const scroll = () => {
-      scrollContainer.scrollLeft += 3; // Adjust speed here
+      scrollContainer.scrollLeft += 2; // Adjust speed here
 
       // Reset scroll position to create a seamless loop
       if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {

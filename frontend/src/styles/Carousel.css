@@ -151,7 +151,7 @@
     align-items: center;
     font-size: 40px;
     color: white;
-    padding: 10px;
+    padding: 20px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 2;
@@ -165,7 +165,7 @@
   }
   
   .right-arrow {
-    right: 15px;
+    right: 25px;
   }
   
   .arrow.disabled {
@@ -198,6 +198,7 @@
     .carousel-text h2 {
       font-size: 1.5rem;
     }
+   
   }
 
   .floating-contact-button {
@@ -247,16 +248,25 @@
   }
 
 
-  @media (max-width: 768px){
+  @media screen and (max-width: 768px){
     .boundary{
       position: absolute;
       z-index: 1000;
       width: 10%;
       height: 20%; 
       right: 35%;
-      bottom: 5%; 
+      bottom: 8%; 
     }
   
+    .right-arrow, .left-arrow{
+      font-size:25px;
+    }
+    .right-arrow{
+      right: 5px
+    }
+    .left-arrow{
+      left: 5px;
+    }
     
   .floating-contact-button{
     position: absolute;

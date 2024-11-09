@@ -113,13 +113,13 @@ const DevelopmentProcess = () => {
         <div>
           <div className="head-div d-flex justify-content-between mt-5 p-3">
             <h1 className="m-5 p-3">
-              Our <span className="head-highlight">Development</span> Process.
+              Our <span className="head-highlight">Development</span> Process
             </h1>
           </div>
 
           <div className="container-fluid dev-cont d-flex">
             {/* Left Section */}
-            <div className="left-section px-4 pt-5">
+            <div className="left-section pt-5">
               {sections.map((section, index) => (
                 <div
                   key={section.id}
@@ -156,7 +156,7 @@ const DevelopmentProcess = () => {
         <div>
           <div className="head-div mt-5 p-3">
             <h1 className="mx-4 dev-process-title-mobile">
-              Our <span className="head-highlight">Development</span> Process.
+              Our <span className="head-highlight">Development</span> Process
             </h1>
             <div className="text-start px-4 mx-2">
               <svg

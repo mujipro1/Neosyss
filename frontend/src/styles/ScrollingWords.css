@@ -21,7 +21,6 @@
     font-weight: 400;
     letter-spacing: -0.1rem;
   }
-  
   .dot{
     font-size: 2rem;
     width: 4rem;
@@ -29,3 +28,16 @@
     color: var(--main);
     justify-content: center;
   }
+
+  @media (max-width: 768px){
+    .word-block{
+      font-size: 1.8rem;
+    }
+    .scrolling-container{
+      height: 10vh;
+    }
+    .dot{
+      width: 3rem;
+    }
+  }
+  
