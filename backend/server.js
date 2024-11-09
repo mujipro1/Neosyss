@@ -49,7 +49,6 @@ const transporter = nodemailer.createTransport({
 // Get all blogs
 app.get('/api/blogs', (req, res) => {
     db.query('SELECT * FROM blogs ORDER BY date DESC', (err, results) => {
-        console.log(results);
         if (err) return res.status(500).json({ error: err.message });
         res.json(results);
     });
@@ -136,7 +135,6 @@ app.post('/api/create-blog', upload.single('image'), (req, res) => {
 app.post('/api/edit-blog', upload.single('image'), (req, res) => {
     const { blogId, title, description, subheading, hashtags } = req.body;
     const image = req.file ? req.file.buffer : null;
-    console.log(req.file);
 
     if (!blogId || !title || !description || !subheading || !hashtags) {
         return res.status(400).json({ error: 'Missing required fields' });
@@ -152,7 +150,6 @@ app.post('/api/edit-blog', upload.single('image'), (req, res) => {
 
     db.query(updateQuery, params, (err, result) => {
         if (err) {
-            console.error(err);
             return res.status(500).json({ error: 'Failed to update blog' });
         }
         res.status(200).json({ message: 'Blog updated successfully' });

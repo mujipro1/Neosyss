@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ContactForm from '../HomePage/ContactForm';
 import '../../styles/Navbar.css';
 
-const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef }) => {
+const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }) => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,15 +29,23 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef }) => {
       observer.observe(topSectionNode);
     }
 
-    // Intersection Observer for #dev-process section
-    const devProcessObserver = new IntersectionObserver(
-      ([entry]) => {
-        setIsInDevProcess(entry.isIntersecting);
-      },
-      { threshold: 0.1 } // Adjust threshold as needed
-    );
-    if (devProcessRef.current) {
-      devProcessObserver.observe(devProcessRef.current);
+    // Only create the Intersection Observer for #dev-process if the ref is provided
+    if (devProcessRef) {
+      const devProcessObserver = new IntersectionObserver(
+        ([entry]) => {
+          setIsInDevProcess(entry.isIntersecting);
+        },
+        { threshold: 0.1 } // Adjust threshold as needed
+      );
+      if (devProcessRef.current) {
+        devProcessObserver.observe(devProcessRef.current);
+      }
+
+      return () => {
+        if (devProcessRef.current) {
+          devProcessObserver.unobserve(devProcessRef.current);
+        }
+      };
     }
 
     let lastScrollY = window.pageYOffset;
@@ -74,9 +82,6 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef }) => {
       window.removeEventListener('scroll', handleScroll);
       if (topSectionNode) {
         observer.unobserve(topSectionNode);
-      }
-      if (devProcessRef.current) {
-        devProcessObserver.unobserve(devProcessRef.current);
       }
     };
   }, [isAtTopComp, isHovering, isInDevProcess, devProcessRef]);
