@@ -29,24 +29,18 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
       observer.observe(topSectionNode);
     }
 
-    // Only create the Intersection Observer for #dev-process if the ref is provided
-    if (devProcessRef) {
+    if (devProcessRef){
+      // Intersection Observer for #dev-process section
       const devProcessObserver = new IntersectionObserver(
-        ([entry]) => {
-          setIsInDevProcess(entry.isIntersecting);
-        },
-        { threshold: 0.1 } // Adjust threshold as needed
-      );
-      if (devProcessRef.current) {
-        devProcessObserver.observe(devProcessRef.current);
-      }
-
-      return () => {
-        if (devProcessRef.current) {
-          devProcessObserver.unobserve(devProcessRef.current);
-        }
-      };
+      ([entry]) => {
+        setIsInDevProcess(entry.isIntersecting);
+      },
+      { threshold: 0.1 } // Adjust threshold as needed
+    );
+    if (devProcessRef.current) {
+      devProcessObserver.observe(devProcessRef.current);
     }
+  }
 
     let lastScrollY = window.pageYOffset;
 

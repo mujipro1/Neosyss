@@ -11,10 +11,27 @@ import OurMission from './HomePage/OurMission';
 import Footer from './Utilities/Footer';
 import Loading from './Utilities/Loading';
 
-const slides = [
-  // your slides here
-];
 
+const slides = [
+  {
+    image: '/videos/code_your_future_today.webm',
+    type: 'video',
+    headline: 'Code Your Future, Today',
+    subHeadline: 'Your dedicated digital partners, from infancy to dreams!',
+  },
+  {
+    image: '/videos/tired_of_finding_freelancers.webm',
+    type: 'video',
+    headline: 'Tired of Freelancing Platforms?',
+    subHeadline: 'Schedule a Meeting Today',
+  },
+  {
+    image: '/videos/your_software_our_creation.webm',
+    type: 'video',
+    headline: 'Your Software, Our Creation',
+    subHeadline: 'Custom-built software, tailored to your needs',
+  },
+];
 const Home = () => {
   const devProcessRef = useRef(null);
 
