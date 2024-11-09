@@ -21,7 +21,7 @@ const BlogForm = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get('https://localhost:5000/api/blogs');
+                const response = await axios.get('/api/blogs');
                 setBlogs(response.data);
             } catch (error) {
                 console.error('Error fetching blogs:', error);
@@ -68,7 +68,7 @@ const BlogForm = () => {
             // Use a different API for edit vs create
             if (editingBlogId) {
                 formData.append('blogId', editingBlogId);
-                const response = await axios.post('https://localhost:5000/api/edit-blog', formData, {
+                const response = await axios.post('/api/edit-blog', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',  // Important for file uploads
                     },
@@ -78,7 +78,7 @@ const BlogForm = () => {
                     setIsSubmitted(true);
                 }
             } else {
-                const response = await axios.post('https://localhost:5000/api/create-blog', formData, {
+                const response = await axios.post('/api/create-blog', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',  // Important for file uploads
                     },
@@ -96,7 +96,7 @@ const BlogForm = () => {
     
     const fetchBlogs = async () => {
         try {
-            const response = await axios.get('https://localhost:5000/api/blogs');
+            const response = await axios.get('/api/blogs');
             setBlogs(response.data);
         } catch (error) {
             console.error('Error fetching blogs:', error);
@@ -127,7 +127,7 @@ const BlogForm = () => {
         if (confirmDelete) {
             try {
                 // For delete, use POST with blog id
-                await axios.post('https://localhost:5000/api/delete-blog', { blogId: confirmDelete });
+                await axios.post('/api/delete-blog', { blogId: confirmDelete });
                 fetchBlogs(); // Refresh blog list
                 setConfirmDelete(null); // Reset delete confirmation
             } catch (error) {
