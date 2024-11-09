@@ -12,7 +12,7 @@ const BlogCardDetails = () => {
 
         const fetchBlogData = async () => {
             try {
-                const response = await fetch('/api/blogs/' + id);
+                const response = await fetch('https://localhost:5000/api/blogs/' + id);
                 const data = await response.json();
                 if (isMounted) {
                     setBlog(data);

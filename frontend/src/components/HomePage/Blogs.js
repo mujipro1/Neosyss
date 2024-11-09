@@ -29,7 +29,7 @@ const Blogs = () => {
         }
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(true); // Set loading to false in case of error
       }
     };
 
