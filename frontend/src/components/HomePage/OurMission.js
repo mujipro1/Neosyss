@@ -70,7 +70,7 @@ const OurMission = () => {
           </h1>
         </div>
 
-        <div className="row mb-4 mx-2 mission-p d-flex justify-content-start text-align-start">
+        <div className="row mb-4 mission-p d-flex justify-content-start text-align-start">
           Our mission focuses on client-first approach, prioritizing
           satisfaction, trust, and ethical responsibility. We embrace new technoligies 
           along with giving value to innovation and excellence. Long-term partnerships 

@@ -47,7 +47,7 @@ const Blogs = () => {
     <div className="blogs-container row m-0">
       <div className="bloghead mt-5 ">
         <h1 className="">
-          <span className="head-highlight">Blogs</span> & Articles.
+          <span className="head-highlight">Blogs</span> & Articles
         </h1>
         <p className="blog-para-x">
           Empower yourself with knowledge. Our blogs & articles are your go-to

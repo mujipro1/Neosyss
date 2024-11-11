@@ -96,6 +96,8 @@ const ContactForm = ({ isOpen, onClose }) => {
               Our team will thoroughly review the materials and respond to you promptly.
             </p>
 
+            <p> Contact us at : +1 (321) 350-0558 </p>
+
             <form onSubmit={handleSubmit}> {/* Add onSubmit handler to the form */}
               <div className="row">
                 <div className="col-md-12 mt-4">
@@ -108,6 +110,7 @@ const ContactForm = ({ isOpen, onClose }) => {
                       <option value="GIS">GIS</option>
                       <option value="Web Development">Web Development</option>
                       <option value="UI/UX">UI/UX</option>
+                      <option value="Blockchain">Blockchain</option>
                       <option value="Custom Software">Custom Software</option>
                     </select>
                   </div>

@@ -21,7 +21,7 @@
 .text-top {
   position: absolute;
   left: 0; /* Ensure it's aligned to the left */
-  padding-left: 70px; /* Padding for left alignment */
+  padding-left: 60px; /* Padding for left alignment */
   white-space: nowrap; /* Prevents text from wrapping */
   transition: transform 0.3s ease-in-out;
   top: 25%;
@@ -74,12 +74,16 @@
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 496px) {
   .hover-button {
     padding: 10px 15px;
     height: 40px;
-    width: 180px;
+    width: 100%;
     font-size: 1rem;
+  }
+  
+  .text{
+    padding: 0 80px;
   }
 
   .text-btn-center{

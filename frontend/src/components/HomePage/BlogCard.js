@@ -44,7 +44,7 @@ const BlogCard = ({ blog = {}, type }) => {
 
   return (
     <div
-      className={`blog-card ${type === 'large' ? 'large-card' : 'small-card'}`}
+      className={`blog-card my-4 ${type === 'large' ? 'large-card' : 'small-card'}`}
       onClick={handleCardClick}
       style={{ cursor: 'pointer' }}
     >
@@ -57,11 +57,11 @@ const BlogCard = ({ blog = {}, type }) => {
             <p className="blog-subheading">{subheading}</p>
             {/* Render the sanitized, truncated description as HTML */}
             <p className="blog-description" dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-            <div className="blog-seemore">See More...</div>
+            {/* <div className="blog-seemore">See More...</div> */}
           </div>
         </div>
       ) : (
-        <div className="blog-small-card">
+        <div className="blog-small-card ">
           {imageSrc && <img src={imageSrc} alt={title} className="blog-image-small" />}
           <div className="blog-text-small">
             <span className="blog-date">{formatDate(date)}</span>

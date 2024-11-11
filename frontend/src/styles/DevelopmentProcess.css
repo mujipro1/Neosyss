@@ -10,6 +10,8 @@
 .head-div{
   background-color: #000; 
   color: #fff;
+  position: sticky;
+  text-align: start;
 }
 
 /* Container for the whole process */
@@ -273,3 +275,5 @@
     width: auto;
     height: 200px;
   }
+
+  

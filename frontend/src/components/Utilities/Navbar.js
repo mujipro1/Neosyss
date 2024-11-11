@@ -29,18 +29,18 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
       observer.observe(topSectionNode);
     }
 
-    if (devProcessRef){
+    if (devProcessRef) {
       // Intersection Observer for #dev-process section
       const devProcessObserver = new IntersectionObserver(
-      ([entry]) => {
-        setIsInDevProcess(entry.isIntersecting);
-      },
-      { threshold: 0.1 } // Adjust threshold as needed
-    );
-    if (devProcessRef.current) {
-      devProcessObserver.observe(devProcessRef.current);
+        ([entry]) => {
+          setIsInDevProcess(entry.isIntersecting);
+        },
+        { threshold: 0.1 } // Adjust threshold as needed
+      );
+      if (devProcessRef.current) {
+        devProcessObserver.observe(devProcessRef.current);
+      }
     }
-  }
 
     let lastScrollY = window.pageYOffset;
 
@@ -51,13 +51,15 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
       }
 
       const currentScrollY = window.pageYOffset;
+
       if (!isHovering) {
         if (currentScrollY > lastScrollY) {
           setIsNavbarVisible(false);
         } else if (currentScrollY < lastScrollY) {
           setIsNavbarVisible(true);
           setTimeout(() => {
-            if (currentScrollY === window.pageYOffset) {
+            if (currentScrollY === window.pageYOffset && !isHovering) {
+              console.log(isHovering)
               setIsNavbarVisible(false);
             }
             if (window.pageYOffset === 0) {
@@ -65,6 +67,8 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
             }
           }, 1500);
         }
+      } else {
+        setIsNavbarVisible(true); // Ensure the navbar is visible when hovering
       }
 
       lastScrollY = currentScrollY;
@@ -94,12 +98,22 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
     setIsMenuOpen((prev) => !prev);
   };
 
+  // Handle link clicks to reset hovering state and allow scroll behavior
+  const handleLinkClick = () => {
+    setIsHovering(false); // Ensure hovering state is reset after clicking a link
+    setTimeout(() => {
+      if (!isHovering) {  // Only hide the navbar if not hovering
+        setIsNavbarVisible(false);
+      }
+    }, 150); // Allow for the click to be processed
+  };
+
   return (
     <div ref={topSectionRef}>
       <nav
         className={`navbar navbar-expand-lg ${isAtTop ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+        onMouseEnter={() => {setIsHovering(true); console.log("Entered")}}
+        onMouseLeave={() => {setIsHovering(false);console.log("Entered")}}
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
@@ -118,27 +132,27 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mx-4">
               {!isHomePage && (
                 <li className="nav-item">
-                  <a className="nav-link" href="/home">Home</a>
+                  <a className="nav-link" href="/home" onClick={handleLinkClick}>Home</a>
                 </li>
               )}
               {isHomePage && (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" onClick={() => scrollToSection('mission')}>Our Mission</a>
+                    <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" onClick={() => scrollToSection('services')}>Services</a>
+                    <a className="nav-link" onClick={() => { scrollToSection('services'); handleLinkClick(); }}>Services</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" onClick={() => scrollToSection('technologies')}>Technologies</a>
+                    <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" onClick={() => scrollToSection('industries')}>Industries</a>
+                    <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
                   </li>
                 </>
               )}
               <li className="nav-item">
-                <a id="contact" className="nav-link" onClick={openPanel} style={{ marginRight: "35px", cursor: 'pointer' }}>Contact</a>
+                <a id="contact" className="nav-link" onClick={() => { openPanel(); handleLinkClick(); }} style={{ marginRight: "35px", cursor: 'pointer' }}>Contact</a>
               </li>
             </ul>
           </div>

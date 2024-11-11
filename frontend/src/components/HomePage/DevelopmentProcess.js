@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../../styles/DevelopmentProcess.css"; // Importing CSS file for styling
+import "../../styles/DevelopmentProcess.css";
 import { useMediaQuery } from "react-responsive";
 
 const sections = [
@@ -60,14 +60,13 @@ const sections = [
     image: "/DevProcess/8.jpeg",
   },
 ];
-
 const DevelopmentProcess = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isDesktop = useMediaQuery({ minWidth: 768 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRefs = useRef([]);
 
-  const [currentIndex, setCurrentIndex] = useState(0); // Track current visible image index
-  const sectionRefs = useRef([]); // Store references to each section for intersection observer
-
+  // Only retain desktop scroll logic
   useEffect(() => {
     if (isDesktop) {
       const observer = new IntersectionObserver(
@@ -76,36 +75,21 @@ const DevelopmentProcess = () => {
             if (entry.isIntersecting) {
               const index = sectionRefs.current.indexOf(entry.target);
               if (index !== currentIndex) {
-                setCurrentIndex(index); // Update the visible image based on scroll position
+                setCurrentIndex(index);
               }
             }
           });
         },
-        {
-          threshold: 0.5, // Trigger when 50% of the section is visible
-        }
+        { threshold: 0.5 }
       );
 
-      // Observe all sections for visibility
       sectionRefs.current.forEach((ref) => {
         if (ref) observer.observe(ref);
       });
 
-      // Cleanup observer on unmount
-      return () => {
-        observer.disconnect(); // Disconnect the observer on unmount
-      };
+      return () => observer.disconnect();
     }
-  }, [isDesktop, currentIndex]); // Add currentIndex as a dependency to avoid stale closures
-
-  const handleScroll = (e) => {
-    const scrollPosition = e.target.scrollLeft;
-    const sectionWidth = e.target.scrollWidth / sections.length;
-    const index = Math.round(scrollPosition / sectionWidth);
-    if (index !== currentIndex) {
-      setCurrentIndex(index);
-    }
-  };
+  }, [isDesktop, currentIndex]);
 
   return (
     <div className="my-component">
@@ -118,7 +102,6 @@ const DevelopmentProcess = () => {
           </div>
 
           <div className="container-fluid dev-cont d-flex">
-            {/* Left Section */}
             <div className="left-section pt-5">
               {sections.map((section, index) => (
                 <div
@@ -126,7 +109,6 @@ const DevelopmentProcess = () => {
                   className="section d-flex flex-column px-5 mx-4 justify-content-center"
                   ref={(el) => (sectionRefs.current[index] = el)}
                 >
-                  {/* number / total */}
                   <div className="section-number my-2">
                     {index + 1} / {sections.length}
                   </div>
@@ -135,8 +117,6 @@ const DevelopmentProcess = () => {
                 </div>
               ))}
             </div>
-
-            {/* Right Section */}
             <div className="right-section px-5">
               <div className="image-container">
                 {sections.map((section, index) => (
@@ -152,38 +132,23 @@ const DevelopmentProcess = () => {
           </div>
         </div>
       )}
+
       {isMobile && (
         <div>
           <div className="head-div mt-5 p-3">
             <h1 className="mx-4 dev-process-title-mobile">
               Our <span className="head-highlight">Development</span> Process
             </h1>
-            <div className="text-start px-4 mx-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                id="arrow-svg"
-                data-name="Layer 1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M19.5,0H10.5c-.828,0-1.5,.671-1.5,1.5s.672,1.5,1.5,1.5h8.379L.439,21.439c-.586,.585-.586,1.536,0,2.121,.293,.293,.677,.439,1.061,.439s.768-.146,1.061-.439L21,5.121V13.5c0,.829,.672,1.5,1.5,1.5s1.5-.671,1.5-1.5V4.5c0-2.481-2.019-4.5-4.5-4.5Z" />
-              </svg>
-            </div>
           </div>
-          <div className="horizontal-scroll-container" onScroll={handleScroll}>
+          <div className="horizontal-scroll-container">
             {sections.map((section) => (
               <div key={section.id} className="mobile-section">
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  className="mobile-image"
-                />
+                <img src={section.image} alt={section.title} className="mobile-image" />
                 <h2 className="mobile-title">{section.title}</h2>
                 <p className="mobile-content">{section.content}</p>
               </div>
             ))}
           </div>
-
-          {/* Dots for Section Indicators */}
           <div className="dots-container">
             {sections.map((_, index) => (
               <span

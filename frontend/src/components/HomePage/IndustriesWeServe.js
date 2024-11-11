@@ -97,7 +97,6 @@ function IndustriesWeServe() {
     <div className="idws-main-cont my-5">
       <h1 className="idws-head  mx-4 ">
         <span className="head-highlight">Industries</span> we serve
-        <span className="head-highlight">.</span>
       </h1>
       <div className="d-flex justify-content-end text-end px-5">
         <p className="text-ind">

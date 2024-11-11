@@ -8,6 +8,7 @@ const ScrollingWords = () => {
     'Web Development',
     'GIS',
     'UI/UX',
+    'Blockchain',
     'Custom Software',
   ];
 

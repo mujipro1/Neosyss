@@ -112,7 +112,7 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className="footer-icon-circle">
-                            <a href="https://www.instagram.com" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
+                            <a href="https://www.instagram.com/neosyssllc/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
                                 <FaInstagram className="icon instagram-icon" />
                             </a>
                         </div>
@@ -152,7 +152,7 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className="footer-icon-circle">
-                            <a href="https://www.instagram.com" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
+                            <a href="https://www.instagram.com/neosyssllc/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
                                 <FaInstagram className="icon instagram-icon" />
                             </a>
                         </div>

@@ -182,6 +182,7 @@ const TechnologiesWeUse = () => {
           {/* Horizontal Scrollable Section Names */}
           <div className="horizontal-scrollbar">
             {Object.keys(content).map((option) => (
+              <>
               <div
                 key={option}
                 className={`option-horizontal ${
@@ -191,6 +192,8 @@ const TechnologiesWeUse = () => {
               >
                 {option}
               </div>
+              
+              </>
             ))}
           </div>
 

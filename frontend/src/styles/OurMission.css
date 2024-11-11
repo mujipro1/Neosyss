@@ -107,6 +107,7 @@
 .mission-p{
   width: 70%;
   text-align: start;
+  padding-left: 20px;
 }
 
 @media screen and (max-width: 768px) {
