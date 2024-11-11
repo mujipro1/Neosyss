@@ -12,7 +12,6 @@ import BlogPageSep from './components/BlogPageSep'
 import MyNav from './components/Utilities/Navbar';
 import BlogCardDetails from './components/BlogCardDetails';
 import CookiePolicy from './components/Policies/CookiePolicy';
-import Test from './Test';
 import TermsAndConditions from './components/Policies/TermsAndConditions';
 import PrivacyPolicy from './components/Policies/PrivacyPolicy';
 
@@ -55,7 +54,6 @@ const App = () => {
               <Footer />
             </>
         } />
-        <Route path="/test" element={<Test />} />
 
         <Route path="/policy/cookies" element={<CookiePolicy />} />
         <Route path="/policy/TAS" element={<TermsAndConditions />} />
