@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useNavigate } from 'react';
 import ContactForm from '../HomePage/ContactForm';
 import '../../styles/Navbar.css';
 
@@ -13,6 +13,8 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
 
   const openPanel = () => setIsPanelOpen(true);
   const closePanel = () => setIsPanelOpen(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const topSectionNode = topSectionRef.current;
@@ -148,6 +150,9 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" onClick={() => { navigate('/blogs/all/') }}>Blogs</a>
                   </li>
                 </>
               )}
