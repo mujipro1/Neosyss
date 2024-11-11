@@ -16,7 +16,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/blogs");
+        const response = await axios.get("api/blogs");
 
         if (isMounted) {
           if (response.data.length >= 4){
