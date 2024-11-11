@@ -25,7 +25,7 @@ const App = () => {
 
         <Route path="/login" element={
           <>
-            <MyNav isAtTopComp={true} />
+            <MyNav />
             <Login/>
             <Footer />
           </>
@@ -33,7 +33,7 @@ const App = () => {
 
         <Route path="/blogform" element={
           <ProtectedRoute>
-            <MyNav isAtTopComp={true} />
+            <MyNav/>
             <BlogForm/>
             <Footer />
           </ProtectedRoute>
@@ -41,7 +41,7 @@ const App = () => {
 
         <Route path="/blogs/:id" element={
             <>
-              <MyNav isAtTopComp={true}/>
+              <MyNav />
               <BlogCardDetails/>
               <Footer />
             </>
@@ -49,7 +49,7 @@ const App = () => {
 
         <Route path="/blogs/all" element={
             <>
-              <MyNav isAtTopComp={true}/>
+              <MyNav />
               <BlogPageSep/>
               <Footer />
             </>
