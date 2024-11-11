@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef, useNavigate } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ContactForm from '../HomePage/ContactForm';
 import '../../styles/Navbar.css';
+
+import { useNavigate } from 'react-router-dom';
 
 const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }) => {
   const [isAtTop, setIsAtTop] = useState(true);
