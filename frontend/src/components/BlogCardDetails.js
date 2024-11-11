@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/BlogCardDetails.css';
+import { useMediaQuery} from 'react-responsive';
+import LoadingSkeleton from '../components/Utilities/LoadingSkeleton'
 
 const BlogCardDetails = () => {
     const { id } = useParams();
     const [blog, setBlog] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isDesktop = useMediaQuery({ minWidth: 768 });
+
     useEffect(() => {
         let isMounted = true;
 
         const fetchBlogData = async () => {
             try {
-                const response = await fetch('/api/blogs/' + id);
+                const response = await fetch('http://localhost:5000/api/blogs/' + id);
                 const data = await response.json();
                 if (isMounted) {
                     setBlog(data);
@@ -34,7 +39,7 @@ const BlogCardDetails = () => {
     }, [id]);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className='p-5'><LoadingSkeleton /></div>;
     }
 
     const arrayBufferToBase64 = (buffer) => {
@@ -61,20 +66,40 @@ const BlogCardDetails = () => {
     const modifiedDescription = addClassToHeadings(blog.description);
 
     return (
-        <div className="my-5 main-section-blog">
-            <div className="blog-det-img-cont">
-                <img src={imageSrc} className="blog-det-img" alt={blog.title} />
-            </div>
-            <h1 className="mt-5 blog-det-title fw-bold">{blog.title}</h1>
-            <div className="d-flex blog-det-subhead justify-content-start">
-                <div style={{ marginRight: '10px' }}> {new Date(blog.date).toLocaleDateString('en-GB', {
-                day:'2-digit', month:'long', year:'numeric',})}</div>
-                -
-                <div className="mx-2">{blog.subheading}</div>
-            </div>
-            <div className="my-3 mt-5 pt-4 blog-det-description" dangerouslySetInnerHTML={{ __html: modifiedDescription }} />
-            <h3 className="mx-2 mb-5 head-highlight">{blog.hashtags}</h3>
+        <div className="my-2 main-section-blog">
 
+            {isDesktop && (
+            <>
+                <div className="blog-det-img-cont">
+                    <img src={imageSrc} className="blog-det-img" alt={blog.title} />
+                </div>
+                <h1 className="mt-5 blog-det-title fw-bold">{blog.title}</h1>
+                <div className="d-flex blog-det-subhead justify-content-start">
+                    <div style={{ marginRight: '10px' }}> {new Date(blog.date).toLocaleDateString('en-GB', {
+                    day:'2-digit', month:'long', year:'numeric',})}</div>
+                    -
+                    <div className="mx-2">{blog.subheading}</div>
+                </div>
+                <div className="my-3 mt-5 pt-4 blog-det-description" dangerouslySetInnerHTML={{ __html: modifiedDescription }} />
+                <h3 className="mx-2 mb-5 head-highlight">{blog.hashtags}</h3>
+            </>
+            )}
+            {isMobile && (
+            <>
+                <div className="blog-det-img-cont">
+                    <img src={imageSrc} className="blog-det-img" alt={blog.title} />
+                </div>
+                <h1 className="mt-3 blog-det-title fw-bold">{blog.title}</h1>
+                <div className="d-flex blog-det-subhead justify-content-start">
+                    <div style={{ marginRight: '10px' }}> {new Date(blog.date).toLocaleDateString('en-GB', {
+                    day:'2-digit', month:'long', year:'numeric',})}</div>
+                    -
+                    <div className="mx-2">{blog.subheading}</div>
+                </div>
+                <div className="my-3 mt-5 pt-4 blog-det-description" dangerouslySetInnerHTML={{ __html: modifiedDescription }} />
+                <h3 className="mx-2 mb-5 head-highlight">{blog.hashtags}</h3>
+            </>
+            )}
         </div>
     );
 };

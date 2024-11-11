@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ContactForm from './ContactForm';
 import '../../styles/Carousel.css';
+import { useMediaQuery } from 'react-responsive';
 
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +12,9 @@ const Carousel = ({ images }) => {
   const [isFollowing, setIsFollowing] = useState(false);
   const [buttonPos, setButtonPos] = useState({ top: '50%', left: '50%' });
   const initialPos = { top: '20%', left: '40%' };
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   const boundaryRef = useRef(null); // Reference to boundary container
   const buttonRef = useRef(null); // Reference to button

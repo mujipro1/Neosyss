@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: '/localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
@@ -170,5 +170,5 @@ app.post('/api/delete-blog', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http:///localhost:${PORT}`);
 });

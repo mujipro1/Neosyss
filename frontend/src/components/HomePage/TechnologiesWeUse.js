@@ -115,6 +115,7 @@ const content = {
   },
 };
 
+
 const TechnologiesWeUse = () => {
   // State to track selected option
   const [selectedOption, setSelectedOption] = useState("Mobile Apps");
@@ -130,12 +131,13 @@ const TechnologiesWeUse = () => {
         </h1>
       </div>
       <p className="tech-para pb-5 pt-3 px-5">
-        Equipped to meet your needs with scalable web application, a robust
-        mobile app, or a cutting-edge AI solution, our developers possess the
+        Equipped to meet your needs with scalable web applications, robust
+        mobile apps, or cutting-edge AI solutions, our developers possess the
         skills and experience to bring your vision to life. With expertise in
         multiple technologies, we're confident in our ability to deliver
-        exceptional results that exceed your expectations.
+        exceptional results that exceed your expectations.
       </p>
+
       {isDesktop && (
         <div className="row w-100 my-5 px-5">
           <div className="col-md-4 py-4 borderA">
@@ -158,7 +160,7 @@ const TechnologiesWeUse = () => {
           <div className="col-md-8 rightSideBar p-5 borderB">
             {Object.keys(content[selectedOption].subOptions).map(
               (subHeading) => (
-                <div className="" key={subHeading}>
+                <div key={subHeading}>
                   <h4>{subHeading}</h4>
                   <div className="mb-4">
                     {content[selectedOption].subOptions[subHeading].map(
@@ -166,7 +168,7 @@ const TechnologiesWeUse = () => {
                         <IconButton
                           text={tech.name}
                           iconClass={tech.iconClass}
-                          key={tech.name}
+                          key={`${subHeading}-${tech.name}`} // Use a unique key combining subHeading and tech.name
                         />
                       )
                     )}
@@ -177,12 +179,12 @@ const TechnologiesWeUse = () => {
           </div>
         </div>
       )}
+
       {isMobile && (
         <div className="mobile-view">
           {/* Horizontal Scrollable Section Names */}
           <div className="horizontal-scrollbar">
             {Object.keys(content).map((option) => (
-              <>
               <div
                 key={option}
                 className={`option-horizontal ${
@@ -192,8 +194,6 @@ const TechnologiesWeUse = () => {
               >
                 {option}
               </div>
-              
-              </>
             ))}
           </div>
 
@@ -209,7 +209,7 @@ const TechnologiesWeUse = () => {
                         <IconButton
                           text={tech.name}
                           iconClass={tech.iconClass}
-                          key={tech.name}
+                          key={`${subHeading}-${tech.name}`} // Unique key for each technology
                         />
                       )
                     )}

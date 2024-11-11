@@ -187,7 +187,6 @@
   @media (max-width: 991px) {
     .carousel-text {
       margin: 0px 40px;
-      text-align: center;
     }
   
     .carousel-text h1 {
@@ -199,6 +198,10 @@
       font-size: 1.5rem;
     }
    
+    .left-arrow{
+      display: none;
+    }
+
   }
 
   .floating-contact-button {

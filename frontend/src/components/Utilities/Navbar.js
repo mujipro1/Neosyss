@@ -63,7 +63,6 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
           setIsNavbarVisible(true);
           setTimeout(() => {
             if (currentScrollY === window.pageYOffset && !isHovering) {
-              console.log(isHovering)
               setIsNavbarVisible(false);
             }
             if (window.pageYOffset === 0) {
@@ -116,8 +115,8 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
     <div ref={topSectionRef}>
       <nav
         className={`navbar navbar-expand-lg ${isAtTop ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
-        onMouseEnter={() => {setIsHovering(true); console.log("Entered")}}
-        onMouseLeave={() => {setIsHovering(false);console.log("Entered")}}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
         <div className="container">
           <a className="navbar-brand" href="/home">

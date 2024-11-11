@@ -19,6 +19,7 @@
     padding: 0px 180px;
   }
 
+  
   .blog-det-title{
     color: var(--main);
   }
@@ -32,3 +33,20 @@
     font-size: 1.4rem;
     text-align: justify;
   }
+    
+      @media (max-width:768px) {
+        .main-section-blog{
+          padding: 0 30px;
+        }
+        .blog-det-img-cont {
+          height: 30vh;
+          width: 100%; /* Full width of the screen */
+          display: flex;
+          justify-content: center;
+          margin-top: 80px;
+          padding: 0;
+      }
+      .blog-det-description{
+        font-size: medium;
+      }
+      }
