@@ -106,9 +106,20 @@ const content = {
     subOptions: {
       Tools: [
         { name: "Figma", iconClass: "fab fa-figma" },
-        { name: "Photoshop", iconClass: "fab fa-photoshop" },
         { name: "Canva", iconClass: "fas fa-paint-brush" },
+        { name: "Photoshop", iconClass: "fab fa-photoshop" },
         { name: "Illustrator", iconClass: "fab fa-illustrator" },
+      ],
+    },
+  },
+  "Block Chain": {
+    heading: "Blockchain",
+    subOptions: {
+      Tools: [
+        { name: "Solidity", iconClass: "fab fa-ethereum" },
+        { name: "Ethereum", iconClass: "fab fa-ethereum" },
+        { name: "Rust", iconClass: "fas fa-code" },
+        { name: "Solana", iconClass: "fas fa-coins" },
       ],
     },
   },
