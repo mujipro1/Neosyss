@@ -142,7 +142,7 @@ const BlogForm = () => {
                 
                 <div className="col-md-6 ">
                     <div className="col-md-12 mt-5 d-flex justify-content-center head-blog-fill px-5 pt-2">
-                        <h2 className='blog-post-heading'>Form <span className='head-highlight'>Submitted</span>.</h2>
+                        <h2 className='blog-post-heading'>Form <span className='head-highlight'>Submitted</span></h2>
                     </div>
                     <div className=" row py-5 blog-form-cont">
                         <div className="thank-you-message text-center">
@@ -201,7 +201,7 @@ const BlogForm = () => {
             )}
 
             <div className="col-md-12 mt-5 d-flex justify-content-center head-blog-fill px-5 pt-2">
-                <h2 className='blog-post-heading'>Manage <span className='head-highlight'>Blogs</span>.</h2>
+                <h2 className='blog-post-heading'>Manage <span className='head-highlight'>Blogs</span></h2>
             </div>
 
             <div className="col-md-9">

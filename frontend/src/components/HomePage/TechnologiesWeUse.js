@@ -79,7 +79,6 @@ const content = {
     subOptions: {
       Tools: [
         { name: "WebGis", iconClass: "fas fa-globe" },
-        { name: "Postgresql", iconClass: "fas fa-database" },
         { name: "JS", iconClass: "fab fa-js" },
         { name: "React", iconClass: "fab fa-react" },
         { name: "Django", iconClass: "fab fa-python" },
@@ -88,7 +87,7 @@ const content = {
         { name: "GeoAI", iconClass: "fas fa-brain" },
         { name: "CartoDB", iconClass: "fas fa-database" },
         { name: "Mapbox", iconClass: "fas fa-map-signs" },
-        { name: "Google Earth Engine", iconClass: "fab fa-google" },
+        { name: "Google Earth", iconClass: "fab fa-google" },
       ],
     },
   },
@@ -107,9 +106,9 @@ const content = {
     subOptions: {
       Tools: [
         { name: "Figma", iconClass: "fab fa-figma" },
-        { name: "Adobe Photoshop", iconClass: "fab fa-photoshop" },
+        { name: "Photoshop", iconClass: "fab fa-photoshop" },
         { name: "Canva", iconClass: "fas fa-paint-brush" },
-        { name: "Adobe Illustrator", iconClass: "fab fa-illustrator" },
+        { name: "Illustrator", iconClass: "fab fa-illustrator" },
       ],
     },
   },
