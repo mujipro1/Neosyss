@@ -14,6 +14,7 @@ import BlogCardDetails from './components/BlogCardDetails';
 import CookiePolicy from './components/Policies/CookiePolicy';
 import TermsAndConditions from './components/Policies/TermsAndConditions';
 import PrivacyPolicy from './components/Policies/PrivacyPolicy';
+import SecondNavbar from './components/Utilities/SecondNavbar';
 
 const App = () => {
   
@@ -25,7 +26,7 @@ const App = () => {
 
         <Route path="/login" element={
           <>
-            <MyNav />
+            <SecondNavbar />
             <Login/>
             <Footer />
           </>
@@ -33,7 +34,7 @@ const App = () => {
 
         <Route path="/blogform" element={
           <ProtectedRoute>
-            <MyNav/>
+            <SecondNavbar/>
             <BlogForm/>
             <Footer />
           </ProtectedRoute>
@@ -41,7 +42,7 @@ const App = () => {
 
         <Route path="/blogs/:id" element={
             <>
-              <MyNav />
+              <SecondNavbar />
               <BlogCardDetails/>
               <Footer />
             </>
@@ -49,7 +50,7 @@ const App = () => {
 
         <Route path="/blogs/all" element={
             <>
-              <MyNav />
+              <SecondNavbar />
               <BlogPageSep/>
               <Footer />
             </>

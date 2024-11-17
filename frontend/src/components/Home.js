@@ -53,7 +53,7 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <MyNav isHomePage={true} devProcessRef={devProcessRef} />
+          <MyNav devProcessRef={devProcessRef} />
           <Carousel images={slides} interval={2000} />
           <ScrollingWords />
           <div id="mission">

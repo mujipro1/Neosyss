@@ -3,13 +3,15 @@ import ContactForm from '../HomePage/ContactForm'; // Contact form component
 import '../../styles/Navbar.css';
 import { useNavigate } from 'react-router-dom';
 
-const MyNav = () => {
+const MyNav = ({ devProcessRef }) => {
   const [isAtTop, setIsAtTop] = useState(true); // Track if at the top of the page
   const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
   const [isHovering, setIsHovering] = useState(false); // Track hover state
+  const [isInDevProcess, setIsInDevProcess] = useState(false); // Track if "dev-process" is in view
   const topSectionRef = useRef(null); // Reference to top section for intersection observer
   const [isPanelOpen, setIsPanelOpen] = useState(false); // Track if contact form panel is open
+  const timeoutRef = useRef(null); // Reference for timeout
 
   const openPanel = () => setIsPanelOpen(true);
   const closePanel = () => setIsPanelOpen(false);
@@ -19,7 +21,7 @@ const MyNav = () => {
   useEffect(() => {
     const topSectionNode = topSectionRef.current;
 
-    // Intersection Observer for detecting if at the top of the page
+    // Observer for detecting if at the top of the page
     const observer = new IntersectionObserver(([entry]) => {
       setIsAtTop(entry.isIntersecting);
     });
@@ -30,6 +32,11 @@ const MyNav = () => {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
+      if (isInDevProcess) {
+        setIsNavbarVisible(false); // Navbar always hidden in dev-process
+        return;
+      }
+
       if (!isHovering) {
         const currentScrollY = window.pageYOffset;
 
@@ -40,9 +47,14 @@ const MyNav = () => {
           setIsNavbarVisible(true);
         }
 
-        // Reset navbar visibility after a delay if not hovering
-        setTimeout(() => {
-          if (currentScrollY === window.pageYOffset && !isHovering) {
+        // Clear any existing timeout
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+
+        // Hide the navbar after a timeout if not hovering
+        timeoutRef.current = setTimeout(() => {
+          if (!isHovering && currentScrollY === window.pageYOffset) {
             setIsNavbarVisible(false);
           }
           if (window.pageYOffset === 0) {
@@ -50,7 +62,7 @@ const MyNav = () => {
           }
         }, 1500);
       } else {
-        setIsNavbarVisible(true); // Ensure navbar is visible while hovering
+        setIsNavbarVisible(true); // Ensure navbar stays visible while hovering
       }
 
       lastScrollY = window.pageYOffset;
@@ -60,11 +72,32 @@ const MyNav = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
       if (topSectionNode) {
         observer.unobserve(topSectionNode);
       }
     };
-  }, [isHovering]);
+  }, [isHovering, isInDevProcess]);
+
+  useEffect(() => {
+    // Observer for detecting if "dev-process" section is in view
+    const devProcessNode = devProcessRef.current;
+
+    if (devProcessNode) {
+      const observer = new IntersectionObserver(
+        ([entry]) => setIsInDevProcess(entry.isIntersecting),
+        { threshold: 0.1 } // Adjust threshold as needed
+      );
+
+      observer.observe(devProcessNode);
+
+      return () => {
+        observer.unobserve(devProcessNode);
+      };
+    }
+  }, [devProcessRef]);
 
   // Scroll to a section
   const scrollToSection = (sectionId) => {
