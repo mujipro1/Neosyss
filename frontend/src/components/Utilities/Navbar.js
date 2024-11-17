@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ContactForm from '../HomePage/ContactForm';
+import ContactForm from '../HomePage/ContactForm'; // Contact form component
 import '../../styles/Navbar.css';
-
 import { useNavigate } from 'react-router-dom';
 
-const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }) => {
-  const [isAtTop, setIsAtTop] = useState(true);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isInDevProcess, setIsInDevProcess] = useState(false); // Track if in #dev-process
-  const topSectionRef = useRef(null);
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
+const MyNav = () => {
+  const [isAtTop, setIsAtTop] = useState(true); // Track if at the top of the page
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
+  const [isHovering, setIsHovering] = useState(false); // Track hover state
+  const topSectionRef = useRef(null); // Reference to top section for intersection observer
+  const [isPanelOpen, setIsPanelOpen] = useState(false); // Track if contact form panel is open
 
   const openPanel = () => setIsPanelOpen(true);
   const closePanel = () => setIsPanelOpen(false);
@@ -21,60 +19,41 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
   useEffect(() => {
     const topSectionNode = topSectionRef.current;
 
-    // Intersection Observer for top section
+    // Intersection Observer for detecting if at the top of the page
     const observer = new IntersectionObserver(([entry]) => {
-      if (!isAtTopComp) {
-        setIsAtTop(entry.isIntersecting);
-      } else {
-        setIsAtTop(false);
-      }
+      setIsAtTop(entry.isIntersecting);
     });
     if (topSectionNode) {
       observer.observe(topSectionNode);
     }
 
-    if (devProcessRef) {
-      // Intersection Observer for #dev-process section
-      const devProcessObserver = new IntersectionObserver(
-        ([entry]) => {
-          setIsInDevProcess(entry.isIntersecting);
-        },
-        { threshold: 0.1 } // Adjust threshold as needed
-      );
-      if (devProcessRef.current) {
-        devProcessObserver.observe(devProcessRef.current);
-      }
-    }
-
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
-      if (isAtTopComp || isInDevProcess) {
-        setIsNavbarVisible(false);
-        return;
-      }
-
-      const currentScrollY = window.pageYOffset;
-
       if (!isHovering) {
+        const currentScrollY = window.pageYOffset;
+
+        // If scrolling down, hide the navbar
         if (currentScrollY > lastScrollY) {
           setIsNavbarVisible(false);
         } else if (currentScrollY < lastScrollY) {
           setIsNavbarVisible(true);
-          setTimeout(() => {
-            if (currentScrollY === window.pageYOffset && !isHovering) {
-              setIsNavbarVisible(false);
-            }
-            if (window.pageYOffset === 0) {
-              setIsNavbarVisible(true);
-            }
-          }, 1500);
         }
+
+        // Reset navbar visibility after a delay if not hovering
+        setTimeout(() => {
+          if (currentScrollY === window.pageYOffset && !isHovering) {
+            setIsNavbarVisible(false);
+          }
+          if (window.pageYOffset === 0) {
+            setIsNavbarVisible(true);
+          }
+        }, 1500);
       } else {
-        setIsNavbarVisible(true); // Ensure the navbar is visible when hovering
+        setIsNavbarVisible(true); // Ensure navbar is visible while hovering
       }
 
-      lastScrollY = currentScrollY;
+      lastScrollY = window.pageYOffset;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -85,9 +64,9 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
         observer.unobserve(topSectionNode);
       }
     };
-  }, [isAtTopComp, isHovering, isInDevProcess, devProcessRef]);
+  }, [isHovering]);
 
-  // Handle navigation to sections
+  // Scroll to a section
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -96,19 +75,19 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
     }
   };
 
-  // Toggle the menu open/close
+  // Toggle the menu visibility
   const handleToggle = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  // Handle link clicks to reset hovering state and allow scroll behavior
+  // Reset hover state and allow scroll behavior after clicking a link
   const handleLinkClick = () => {
-    setIsHovering(false); // Ensure hovering state is reset after clicking a link
+    setIsHovering(false);
     setTimeout(() => {
-      if (!isHovering) {  // Only hide the navbar if not hovering
+      if (!isHovering) {
         setIsNavbarVisible(false);
       }
-    }, 150); // Allow for the click to be processed
+    }, 150);
   };
 
   return (
@@ -133,32 +112,26 @@ const MyNav = ({ isAtTopComp = false, isHomePage = false, devProcessRef = null }
 
           <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mx-4">
-              {!isHomePage && (
-                <li className="nav-item">
-                  <a className="nav-link" href="/home" onClick={handleLinkClick}>Home</a>
-                </li>
-              )}
-              {isHomePage && (
-                <>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={() => { scrollToSection('services'); handleLinkClick(); }}>Services</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={() => { navigate('/blogs/all/') }}>Blogs</a>
-                  </li>
-                </>
-              )}
               <li className="nav-item">
-                <a id="contact" className="nav-link" onClick={() => { openPanel(); handleLinkClick(); }} style={{ marginRight: "35px", cursor: 'pointer' }}>Contact</a>
+                <a className="nav-link" href="/home" onClick={handleLinkClick}>Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => { scrollToSection('services'); handleLinkClick(); }}>Services</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => { navigate('/blogs/all/') }}>Blogs</a>
+              </li>
+              <li className="nav-item">
+                <a id="contact" className="nav-link" onClick={() => { openPanel(); handleLinkClick(); }} style={{ cursor: 'pointer' }}>Contact</a>
               </li>
             </ul>
           </div>

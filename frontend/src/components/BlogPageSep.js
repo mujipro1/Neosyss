@@ -36,7 +36,7 @@ const BlogPageSep = () => {
     <div className="blogs-container row m-0">
       <div className="bloghead mt-5 p-5">
         <h1 className="mx-4">
-          <span className="head-highlight">Blogs</span> & Articles.
+          <span className="head-highlight">Blogs</span> & Articles
         </h1>
       </div> 
 

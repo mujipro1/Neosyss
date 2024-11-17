@@ -26,7 +26,6 @@
     font-size: 18px;
     margin-right: 20px;
     transition: color 0.2s ease-in-out;
-    margin-left: 20px;
     color: white;
     cursor: pointer;
     transition: all .5s;
@@ -35,7 +34,6 @@
   /* Other existing styles */
   .navbar-solid .nav-link {
     font-size: 18px;
-    margin-left: 20px;
     cursor: pointer;
     margin-right: 20px;
     color: #494949fa;
@@ -52,6 +50,7 @@
     color: var(--main);
     font-weight: 600;
   }
+
   
   .navbar .navbar-toggler {
     border: none !important;
@@ -99,7 +98,16 @@
     .collapse.navbar-collapse {
       display: none; /* Hidden by default */
       flex-direction: column; /* Stack items vertically */
-      text-align: center;
+    }
+    .nav-link {
+      margin: 0;
+      text-align :right;
+    }
+    .navbar-solid .nav-link, .navbar-transparent .nav-link {
+      text-align :right;
+      margin-right: -10px;
+      padding: 3px 0;
+
     }
   }
   

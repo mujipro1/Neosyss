@@ -13,7 +13,7 @@ import Loading from './Utilities/Loading';
 
 const slides = [
   {
-    image: '/videos/code_your_future_today.webm',
+    image: '/videos/code_your_future_today.mp4',
     type: 'video',
     headline: 'Code Your Future, Today',
     subHeadline: 'Your dedicated digital partners, from infancy to dreams!',

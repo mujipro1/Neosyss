@@ -38,9 +38,9 @@ const Footer = () => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
     return (
-        <footer className="footer p-5">
-            <div className="row footer-top px-5 pt-3">
-                <div className="col-md-4">
+        <footer className="footer">
+            <div className="d-flex pt-3">
+                <div className="col-4">
                     <div className="footer-content d-flex align-items-center my-3 justify-content-center text-start flex-column">
                         <div>
                         <div className="mb-3 footer-head">Company</div>
@@ -53,7 +53,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-4">
                     <div className="footer-content d-flex align-items-center my-3 mx-2 justify-content-center text-start flex-column">
                         <div>
                             <div className="mb-3 footer-head">Services</div>
@@ -66,7 +66,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-4 contact-col">
                     <div className="footer-content d-flex align-items-center my-3 justify-content-center text-start flex-column">
                         <div>
                             <div className="mb-3 footer-head">Contact</div>
@@ -137,49 +137,52 @@ const Footer = () => {
       {isMobile && (
         <>
            <div className="row footer-bottom">
-                <div className="col-md-4 mb-2 text-start d-flex align-items-center justify-content-center ">
-                    <div>
-                        <div className="text-center">info@neosyss.com</div>
-                        <div className="text-center"> +1 (321) 350-0558 </div>
+                  <div className="d-flex align-items-start justify-content-between">
+                    <div className="contact-foot d-flex justify-content-start flex-column">
+                        <div className="text-center contact-footer-text">info@neosyss.com</div>
+                        <div className="text-center contact-footer-text"> +1 (321) 350-0558 </div>
                     </div>
-                </div>
-               
-                <div className="col-md-4 my-5 d-flex align-items-center flex-column justify-content-center">
-                    <div>
-                        <div className="footer-icon-circle">
-                            <a href="https://www.linkedin.com/company/neosyss/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
-                                <FaLinkedinIn className="icon linkedin-icon" />
-                            </a>
-                        </div>
-                        <div className="footer-icon-circle">
-                            <a href="https://www.instagram.com/neosyssllc/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
-                                <FaInstagram className="icon instagram-icon" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="list-item-small hoverClick" onClick={() => handleNavigate('/policy/TAS')}>
-                        Terms and Conditions
-                    </div>
-                    <div className="d-flex flex-row">
-                        <div className="list-item-small pt-1 hoverClick" onClick={() => handleNavigate('/policy/privacy')}>
-                            Privacy Policy
-                        </div>
-                        <div className="mx-2">|</div>
-                        <div className="list-item-small pt-1 hoverClick" onClick={() => handleNavigate('/policy/cookies')}>
-                            Cookies Policy
-                        </div>
-                    </div>
+                    <div className=" d-flex justify-content-start flex-column">
 
-                </div>
 
-                <div className="col-md-4 my-2 d-flex align-items-center">
-                    <div>
+                        <div>
+                            <div className="footer-icon-circle">
+                                <a href="https://www.linkedin.com/company/neosyss/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
+                                    <FaLinkedinIn className="icon linkedin-icon" />
+                                </a>
+                            </div>
+                            <div className="footer-icon-circle">
+                                <a href="https://www.instagram.com/neosyssllc/" target="_blank" rel="noreferrer"> {/* Added rel="noreferrer" */}
+                                    <FaInstagram className="icon instagram-icon" />
+                                </a>
+                            </div>
+                        </div>
                         <img 
                             src={`${process.env.PUBLIC_URL}/logowhite.png`} 
                             className='img-fluid footer-logo' 
                             alt="Company logo" // Added alt text here
                         />
-                       <div className="mt-3 list-item-small">
+
+
+                    </div>
+                  </div>
+
+                <div className="col-md-4 my-2 d-flex align-items-center">
+                    <div>                        
+                    <div className="list-item mb-4 text-light foot-hidden"> 7901 4th St N # 22651 St. Petersburg, FL 33702</div>
+                        <div className="list-item-small hoverClick" onClick={() => handleNavigate('/policy/TAS')}>
+                            Terms and Conditions
+                        </div>
+                        <div className="d-flex flex-row text-center align-items-center justify-content-center">
+                            <div className="list-item-small pt-1 hoverClick" onClick={() => handleNavigate('/policy/privacy')}>
+                                Privacy Policy
+                            </div>
+                            <div className="mx-2">|</div>
+                            <div className="list-item-small pt-1 hoverClick" onClick={() => handleNavigate('/policy/cookies')}>
+                                Cookies Policy
+                            </div>
+                        </div>
+                       <div className="mt-1 list-item-small">
                             © {new Date().getFullYear()} Neosyss. All Rights Reserved
                         </div>
 

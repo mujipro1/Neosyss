@@ -45,7 +45,7 @@ const Blogs = () => {
 
   return (
     <div className="blogs-container row m-0">
-      <div className="bloghead mt-5 ">
+      <div className="bloghead mt-2 ">
         <h1 className="">
           <span className="head-highlight">Blogs</span> & Articles
         </h1>

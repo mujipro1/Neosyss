@@ -1,6 +1,10 @@
 .footer{
     background-color: black;
     color: rgb(155, 155, 155);
+    padding: 30px;
+}
+.footer.row{
+    margin:0!important;
 }
 .footer-head{
     color: white;
@@ -73,4 +77,53 @@
 .list-item-large{
     font-size: 1.2rem;
     color: white;
+}
+
+.foot-hidden{
+    display:none;
+}
+
+@media (max-width: 768px){
+    .footer{
+        padding: 5px;
+    }
+    .footer-bottom{
+        padding: 30px 0;
+        margin: 30px 10px;
+    }
+    .contact-footer-text{
+        font-size: small;
+        color: white;
+    }
+    .footer-logo{
+        width:130px;
+        height: auto;
+        margin-left:5px;
+        transform: translateY(-10px);
+
+    }
+    .footer-icon-circle{
+        margin:0;
+        padding: 0;
+    }
+    .contact-foot{
+        padding: 10px 5px;
+    }
+    .col-4{
+        width: 50%;
+        padding: 0;
+    }
+    .col-4 .footer-head{
+        font-size: large;
+    }
+    .col-4 .list-item{
+        font-size: small;
+    }
+    .contact-col{
+        display:none;
+    }
+    .foot-hidden{
+        display:block;
+        font-size: small;
+    }
 }

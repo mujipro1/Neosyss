@@ -96,7 +96,7 @@ const ContactForm = ({ isOpen, onClose }) => {
               Our team will thoroughly review the materials and respond to you promptly.
             </p>
 
-            <p> Contact us at : +1 (321) 350-0558 </p>
+            <p style={{lineHeight:'0px'}}> Contact us at : +1 (321) 350-0558 </p>
 
             <form onSubmit={handleSubmit}> {/* Add onSubmit handler to the form */}
               <div className="row">
