@@ -9,7 +9,7 @@ const SpecializedSolutions = ({ data, heading }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 }); // For desktop
 
   return (
-    <div className="row mb-5 py-5 spec-pad blue-body">
+    <div className="row spec-pad blue-body">
       {isMobile && (
         <h3 className="px-5 spec-head">{heading}</h3>
       )}
