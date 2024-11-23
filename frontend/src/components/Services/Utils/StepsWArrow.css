@@ -1,0 +1,79 @@
+.stepsWArrow-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.stepsWArrow-container > *:nth-child(2n) {
+    align-self: flex-end;
+}
+
+.stepsWArrow-container > *:nth-child(2n+1) {
+    align-self: flex-start;
+}
+
+.stepsWArrow-container > *:last-child .arrow{
+    display: none;
+}
+
+.stepsWArrow-container > div {
+    max-width: 45%;
+}
+
+.stepsWCard:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0);
+}
+
+.stepsWCard {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.stepsWCard p {
+    margin-bottom: 0px;
+}
+
+.arrow {
+    position: absolute;
+    width: 200px;
+}
+
+.arrow.rtl {
+    top: 80%;
+    transform: translateY(50%) translateX(-100%);
+    left: 60vw;
+    rotate: 40deg;
+}
+
+.arrow.ltr {
+    top: calc(80% - 100px);
+    transform: scaleX(-1);
+    right: calc(40vw + 100px);
+    rotate: -40deg;
+}
+.mobile {
+    max-width: 80% !important;
+}
+
+.mobile .arrow {
+    position: absolute;
+    width: 75px;
+}
+
+.mobile .arrow.rtl {
+    top: 90%;
+    transform: translateY(50%) translateX(-100%);
+    left: 115%;
+    rotate: 45deg;
+}
+
+.mobile .arrow.ltr {
+    top: 85%;
+    transform: scaleX(-1);
+    right: 105%;
+    rotate: -45deg;
+}
