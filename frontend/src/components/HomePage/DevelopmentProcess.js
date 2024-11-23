@@ -8,49 +8,49 @@ const sections = [
     title: "Understanding",
     content:
       "As a company, we believe in diving deep in and taking our time to understand your goals, vision, and the challenges you face. We encourage open communication to ensure your vision is accurately captured. We believe in collecting detailed information about what you want to get done so we don’t miss any minor details.",
-    image: "./DevProcess/1.jpeg",
+    image: "/DevProcess/1.jpeg",
   },
   {
     id: "research",
     title: "Research",
     content:
       "We believe in thorough research to identify what will make you stand out, which includes studying user behaviors, industry trends, and technological assessment. We want to make sure that the technologies we use are the best fit for your project.",
-    image: "./DevProcess/2.jpeg",
+    image: "/DevProcess/2.jpeg",
   },
   {
     id: "conceptualization",
     title: "Conceptualization",
     content:
       "Our skilled and highly qualified team sits together and collaborates to make your enlightened vision more polished and add value to it. From creating interactive prototypes to mimicking your vision in the form of the software’s functionality and user experience.",
-    image: "./DevProcess/3.jpeg",
+    image: "/DevProcess/3.jpeg",
   },
   {
     id: "design-planning",
     title: "Design & Planning",
     content:
       "We want you to be involved every step of the way, from design planning to implementation. We believe in comprehensive project plans and ensuring milestones and efficient delivery with a major focus on a user-centric design approach creating intuitive and visually appealing interfaces that stand out and leave an impression on the users.",
-    image: "./DevProcess/4.jpeg",
+    image: "/DevProcess/4.jpeg",
   },
   {
     id: "build-develop",
     title: "Build and Develop",
     content:
       "We don’t just build end-to-end solutions for you; we also ensure that they meet the highest standards of quality, using complete agile processes.",
-    image: "./DevProcess/5.jpeg",
+    image: "/DevProcess/5.jpeg",
   },
   {
     id: "validate-refine",
     title: "Validate and Refine",
     content:
       "Delivering the product to clients isn’t where we stop. Our quality assurance team meticulously validates each process, performing extensive QA and software testing at every user touchpoint to refine the product before final execution.",
-    image: "./DevProcess/6.jpeg",
+    image: "/DevProcess/6.jpeg",
   },
   {
     id: "launch-deploy",
     title: "Launch and Deploy",
     content:
       "What matters most is the successful final deployment. Our dedicated team ensures your product goes live without any bugs, providing complete post-launch assistance as well.",
-    image: "./DevProcess/7.jpeg",
+    image: "/DevProcess/7.jpeg",
   },
   {
     id: "maintenance-growth",

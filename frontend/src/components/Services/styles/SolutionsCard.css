@@ -1,0 +1,150 @@
+.blue-body{
+    padding-top: 100px!important;
+    padding-bottom: 100px!important;
+    background-color: #b5c1d036;
+}
+
+.SolutionsCard{
+    background-color: white;
+    border-radius: 20px;
+    transition: all .5s;
+    padding: 30px 40px;
+    cursor: pointer;
+    min-height: 250px;
+}
+
+
+.SolutionsCard {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out box-shadow 1s ease-in-out;
+}
+
+.SolutionsCard.visible {
+  opacity: 1;
+}
+
+.SolutionsCard h3{
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--main);
+}
+
+.SolutionsCard p{
+  font-size: 20px;
+}
+
+.SolutionsCard:hover{
+    box-shadow: 0px 0px 10px #8c9eaf62;
+}
+
+.service-tag-top{
+    width: 75%;
+    font-size: 30px;
+    padding:10px;
+  }
+  .top-sec{
+    margin: 140px 0px;
+}
+.top-sec-head{
+  font-size: 80px;
+  font-weight: 700;
+  text-align: right;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+
+}
+.top-sec-head div{
+  width: 70%;
+  padding: 10px;
+  line-height: 1em;
+}
+
+
+@media (max-width:990px) {
+  .top-sec-head{
+    font-size: 40px;
+    text-align: start;
+    width: 80%;
+  }
+  .top-sec-head div{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .service-tag-top{
+    font-size: 20px;
+    margin:0;
+    width: 100%;
+  }
+}
+
+
+.sticky-column {
+    position: sticky;
+    top: 20%;
+    margin-bottom: 100px;
+    padding: 10px;
+    z-index: 1;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    height: 200px;
+    font-size: 55px;
+  }
+  .sticky-column p {
+    background: linear-gradient(125deg, var(--main), #000); /* Your gradient colors */
+    -webkit-background-clip: text; /* For WebKit-based browsers like Chrome and Safari */
+    background-clip: text; /* Standard */
+    color: transparent; /* Make the text color transparent to show the gradient */
+  }
+  .techweuse-head{
+    padding-left: 80px;
+  }
+  .techweuse-head h1{
+    font-size: 50px;
+    font-weight: 700;
+  }
+
+  .techweuse-services{
+    background-color: white;
+    margin: 150px 0 100px 0;
+    padding: 60px 0;
+  }
+
+  .spec-head{
+    color: var(--main);
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0;
+
+  }
+  .techweuse-col{
+    padding: 70px;
+  }
+
+  .spec-pad{
+    padding: 40px;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .spec-pad{
+        padding: 10px;
+    }
+    .techweuse-head{
+      padding: 0 30px;
+    }
+    .techweuse-head h1{
+      font-size: 36px;
+      font-weight: 700;
+    }
+    
+  .techweuse-services{
+    background-color: white;
+    margin: 80px 0 100px 0;
+    padding: 60px 0;
+  }
+  
+  }

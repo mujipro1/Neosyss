@@ -1,0 +1,61 @@
+.service-home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .service-home-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .service-home-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .service-home-overlay {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .service-home-overlay h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-home-overlay h2 {
+    font-size: 1.5rem;
+  }
+  
+
+  .service-home-overlay-mob {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .service-home-overlay-mob h1 {
+    font-size: 2.5rem;
+    line-height: 1em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-home-overlay-mob h2 {
+    font-size: 1rem;
+  }
+  
