@@ -28,10 +28,10 @@ const FAQ = ({data}) => {
     return (
         <>
         <div className="row my-5 py-5 spec-pad">
-            <div className="techweuse-head pt-5 p-3">
-                <h1 ><span className=" head-highlight">Frequently</span> Asked <span className=" head-highlight">Questions</span></h1>
+            <div className="techweuse-head pt-5 px-3">
+                <h1><span className=" head-highlight">Frequently</span> Asked <span className=" head-highlight">Questions</span></h1>
             </div>
-            <div className="col-md-6 order-md-1 d-flex justify-content-center order-2">
+            <div className="col-md-6 order-md-1 d-flex justify-content-center align-items-center order-2">
             <div className="accordion-container mt-5">
                 {data.map((section, index) => (
                 <div key={index} className="accordion-section">
@@ -67,11 +67,11 @@ const FAQ = ({data}) => {
             </div>
             </div>
 
-            <div className="col-md-6 order-md-2 d-flex justify-content-center align-items-center  order-1">
+            <div className="col-md-6 order-md-2 p-5  order-1">
             <img
-                src="/Core Values.png"
-                alt="Our Mission"
-                className="img-fluid missionimg"
+                src="/Services/FAQs.png"
+                alt="FAQs"
+                className="img-fluid"
             />
             </div>
         </div>
