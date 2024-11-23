@@ -8,40 +8,42 @@ import SolutionsData from "../data/SolutionsData";
 import FAQData from "../data/FAQData";
 import ServiceHome from "./Utils/ServiceHome";
 import DevelopmentProcess from "../HomePage/DevelopmentProcess";
-
+import { GIS as GISdata } from "../data/ServicesSteps";
+import StepsWArrow2 from "./Utils/StepsWArrow2";
 
 const GIS = () => {
 
   const GISdevData = SolutionsData.find(data => data.category === "GIS");
-    const GISFAQData = FAQData.find(data => data.category === "AI Development");
-  
-    return (
-        <div className="service-body">
-        <SecondNavbar />        
-        <div className=" pb-5">
+  const GISFAQData = FAQData.find(data => data.category === "AI Development");
+
+  return (
+    <div className="service-body">
+      <SecondNavbar />
+      <div className=" pb-5">
         <ServiceHome
           image="/Services/GIS.png"
           mobImage="/Services/GIS 2.png"
         />
 
-          <div className="row top-sec">
-            <div className="col-lg-6">
-              <div className="top-sec-head"><div>GIS / Cartography Solutions</div></div>
-            </div>
-            <div className="col-lg-6">
-              <div className="service-tag-top">{GISdevData.tagline}</div>
-            </div>
+        <div className="row top-sec">
+          <div className="col-lg-6">
+            <div className="top-sec-head"><div>GIS / Cartography Solutions</div></div>
           </div>
-            <SpecializedSolutions data={GISdevData.solutions}
-            heading="Specialized Solutions for Real-World Applications of GIS" />
-            
-            {/* <TechWeUseSingle field={"GIS / Cartography"}/> */}
-            <DevelopmentProcess />
-            <FAQ data={GISFAQData.data}/>
+          <div className="col-lg-6">
+            <div className="service-tag-top">{GISdevData.tagline}</div>
+          </div>
         </div>
-        <Footer />
-        </div>
-    );
+        <SpecializedSolutions data={GISdevData.solutions}
+          heading="Specialized Solutions for Real-World Applications of GIS" />
+
+        {/* <TechWeUseSingle field={"GIS / Cartography"}/> */}
+        {/* <DevelopmentProcess data={GISdata} /> */}
+        <StepsWArrow2 data={GISdata} />
+        <FAQ data={GISFAQData.data} />
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default GIS;
