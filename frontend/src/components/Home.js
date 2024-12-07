@@ -10,6 +10,7 @@ import DevelopmentProcess from './HomePage/DevelopmentProcess';
 import OurMission from './HomePage/OurMission';
 import Footer from './Utilities/Footer';
 import Loading from './Utilities/Loading';
+import ScrollToTopButton from './HomePage/ScrollToTopButton';
 
 const slides = [
   {
@@ -53,6 +54,7 @@ const Home = () => {
         </div>
       ) : (
         <>
+        <ScrollToTopButton />
           <MyNav devProcessRef={devProcessRef} />
           <Carousel images={slides} interval={2000} />
           <ScrollingWords />

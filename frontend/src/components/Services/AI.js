@@ -1,27 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import FAQ from "./Utils/FAQ";
 import SpecializedSolutions from "./Utils/SpecializedSolutions";
-import SecondNavbar from "../Utilities/SecondNavbar";
+import MyNav from "../Utilities/Navbar";
 import Footer from "../Utilities/Footer";
 import TechWeUseSingle from "./Utils/TechWeUseSingle";
 import SolutionsData from "../data/SolutionsData";
 import FAQData from "../data/FAQData";
 import ServiceHome from "./Utils/ServiceHome";
-import DevelopmentProcess from "../HomePage/DevelopmentProcess";
+import devProcessData from "../data/ServicesSteps";
+import Revolve from "./Utils/Revolve";
 
 
 const AI = () => {
 
     const aiDevelopmentData = SolutionsData.find(data => data.category === "AI Development");
     const aiDevelopmentForecastData = SolutionsData.find(data => data.category === "AI Development Forecast");
-    
+       
     const aiDevelopmentFAQ = FAQData.find(data => data.category === "AI Development");
- 
- 
-  
-    return (
+    
+    const aiDevData = devProcessData.find(data => data.category === "AI");
+    
+    const tagline="Our AI development process is meticulously designed to ensure high-quality deliverables aligned with client goals. From data preparation to model deployment, we adopt industry best practices to meet modern requirements."
+    return (    
         <div className="service-body">
-        <SecondNavbar />        
+        <MyNav />        
         <div className=" pb-5">
         <ServiceHome
           image="/Services/Ai Development.png"
@@ -41,8 +43,10 @@ const AI = () => {
             <SpecializedSolutions data={aiDevelopmentForecastData.solutions}
             heading="Predictive and Forecast Models" />
 
-            <TechWeUseSingle field={"Artificial Intelligence"}/>
-            <DevelopmentProcess />
+            <TechWeUseSingle field={"Artificial Intelligence"} />
+
+            <Revolve data={aiDevData.data} tagline={tagline}/>
+
             <FAQ data={aiDevelopmentFAQ.data}/>
         </div>
         <Footer />

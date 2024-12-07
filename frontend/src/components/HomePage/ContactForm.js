@@ -36,7 +36,7 @@ const ContactForm = ({ isOpen, onClose }) => {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const ContactForm = ({ isOpen, onClose }) => {
               Our team will thoroughly review the materials and respond to you promptly.
             </p>
 
-            <p style={{lineHeight:'0px'}}> Contact us at : +1 (321) 350-0558 </p>
+            <p > Contact us at : +1 (321) 350-0558 </p>
 
             <form onSubmit={handleSubmit}> {/* Add onSubmit handler to the form */}
               <div className="row">

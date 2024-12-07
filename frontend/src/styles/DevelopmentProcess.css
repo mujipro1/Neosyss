@@ -85,13 +85,28 @@
   font-weight: bolder;
 }
 
+
+
+.head-div2 h1{
+  font-size: 3.5rem;
+  font-weight: bolder;
+}
+.head-div2{
+    margin-top: 50px;
+}
+
 /* Responsive behavior */
 @media (max-width: 768px) {
   .left-section, .right-section {
     width: 100%;
   }
-
-
+  .head-div2{
+    font-size: 36px;
+    line-height: 1em;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
   .right-section {
     height: auto;
     position: static;
@@ -276,4 +291,3 @@
     height: 200px;
   }
 
-  

@@ -19,6 +19,7 @@ import WebDev from './components/Services/WebDev';
 import AI from './components/Services/AI';
 import MobileApp from './components/Services/MobileApp';
 import BlockChain from './components/Services/BlockChain';
+import ServicesMain from './components/Services/ServicesMain';
 
 const App = () => {
 
@@ -61,13 +62,13 @@ const App = () => {
             </>
         } />
 
+        <Route path="/services" element={<ServicesMain />} />
         <Route path="/services/GIS" element={<GIS />} />
         <Route path="/services/AI" element={<AI />} />
         <Route path="/services/WebDev" element={<WebDev />} />
         <Route path="/services/MobileApp" element={<MobileApp />} />
         <Route path="/services/Blockchain" element={<BlockChain />} />
         
-
         <Route path="/policy/cookies" element={<CookiePolicy />} />
         <Route path="/policy/TAS" element={<TermsAndConditions />} />
         <Route path="/policy/privacy" element={<PrivacyPolicy />} />

@@ -45,12 +45,12 @@ const Frameworks = ({heading, subheading, frameworks}) => {
     };
   }, []);
 
-  const frameworksdouble = [...frameworks, ...frameworks];
+  const frameworksdouble = [...frameworks, ...frameworks, ...frameworks, ...frameworks];
 
   return (
     <div className="idws-main-cont ">
       <h1 className="idws-head  mx-4 ">
-        <span className="head-highlight">{heading}</span> 
+        {heading}
       </h1>
       <div className="d-flex justify-content-end text-end px-5">
         <p className="text-ind">

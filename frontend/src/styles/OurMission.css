@@ -30,12 +30,12 @@
   fill: var(--main);
 }
 
-.accordion-header .arrow {
+.accordion-header .arrow-x {
   font-size: 18px;
   transition: transform 0.3s ease;
 }
 
-.accordion-header .arrow.open {
+.accordion-header .arrow-x.open {
   transform: rotate(180deg);
 }
 

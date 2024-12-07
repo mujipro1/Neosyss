@@ -1,5 +1,5 @@
 /* General card styles */
-.card {
+.card-1 {
   background:linear-gradient(-135deg, black, rgb(45, 45, 45));
   outline: none;
   border:none;
@@ -20,13 +20,13 @@
 }
 
 /* Title inside each card */
-.card h3 {
+.card-1 h3 {
   font-size: 1.5rem;
   color:var(--main);
   margin-bottom: 10px;
 }
 
-.card p {
+.card-1 p {
   margin-bottom: 15px;
   font-size: 1rem;
   width: 100%;
@@ -37,13 +37,13 @@
 }
 
 /* Features section inside the card */
-.features {
+.features-1 {
   display: flex;
   flex-wrap: wrap; /* Ensure features wrap to new lines */
   gap: 10px;
 }
 
-.text-ind{
+.text-ind-1{
   color: grey;
   font-size: 1.2rem;
   width: 65%;
@@ -52,7 +52,7 @@
 }
 
 /* Feature tag inside each card */
-.feature-tag {
+.feature-tag-1 {
   background-color: #5757578b;
   border-radius: 20px;
   padding: 8px 12px;
@@ -62,13 +62,13 @@
   white-space: normal; /* Ensure feature tags break to the next line if too long */
 }
 
-.card:hover {
+.card-1:hover {
   box-shadow: 0px 0px 0px 2px var(--main); /* Soft box-shadow on hover */
 }
 
 
 /* Scrolling container that holds the cards */
-.scrolling-container-idws {
+.scrolling-container-idws-1 {
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -78,12 +78,12 @@
   /* margin-bottom: 200px; */
 }
 
-.scrolling-container-idws div {
+.scrolling-container-idws-1 div {
   display: inline-block; /* Ensure cards are inline for horizontal scrolling */
 }
 
 /* Section title */
-.idws-head {
+.idws-head-1 {
   font-size: 4rem;
   font-weight: 700;
   text-align: end;
@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 768px) {
  /* Section title */
-.idws-head {
+.idws-head-1 {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 2.3rem;
@@ -101,7 +101,7 @@
   color: white;
   padding-left:  25px;
 }
-.text-ind{
+.text-ind-1{
   font-size: 1.2rem;
   width: 100%;
   margin: auto;
@@ -114,7 +114,7 @@
   
 }
 
-.idws-main-cont{
+.idws-main-cont-1{
   padding-bottom: 90px;
   background-color: black;
 }

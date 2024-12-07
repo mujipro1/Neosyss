@@ -3,7 +3,7 @@ import ContactForm from '../HomePage/ContactForm'; // Contact form component
 import '../../styles/Navbar.css';
 import { useNavigate } from 'react-router-dom';
 
-const MyNav = ({ devProcessRef }) => {
+const MyNav = ({ devProcessRef = null }) => {
   const [isAtTop, setIsAtTop] = useState(true); // Track if at the top of the page
   const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
@@ -82,7 +82,8 @@ const MyNav = ({ devProcessRef }) => {
   }, [isHovering, isInDevProcess]);
 
   useEffect(() => {
-    // Observer for detecting if "dev-process" section is in view
+    if (!devProcessRef) return; // If devProcessRef is null, skip this effect
+
     const devProcessNode = devProcessRef.current;
 
     if (devProcessNode) {
@@ -152,7 +153,7 @@ const MyNav = ({ devProcessRef }) => {
                 <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { scrollToSection('services'); handleLinkClick(); }}>Services</a>
+                <a className="nav-link" onClick={() => { navigate('/services'); }}>Services</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>

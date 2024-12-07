@@ -11,7 +11,7 @@ const SpecializedSolutions = ({ data, heading }) => {
   return (
     <div className="row spec-pad blue-body">
       {isMobile && (
-        <h3 className="px-5 spec-head">{heading}</h3>
+        <h3 className="padding-5 text-dark spec-head">{heading}</h3>
       )}
 
       {/* Left Column - Solution Cards */}

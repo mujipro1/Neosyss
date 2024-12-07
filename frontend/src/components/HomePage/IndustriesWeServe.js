@@ -94,27 +94,27 @@ function IndustriesWeServe() {
   const industriesdouble = [...industries, ...industries];
 
   return (
-    <div className="idws-main-cont my-5">
-      <h1 className="idws-head  mx-4 ">
+    <div className="idws-main-cont-1 my-5">
+      <h1 className="idws-head-1  mx-4 ">
         <span className="head-highlight">Industries</span> we serve
       </h1>
       <div className="d-flex justify-content-end text-end px-5">
-        <p className="text-ind">
+        <p className="text-ind-1">
           Leverage our extensive expertise across diverse sectors, empowering
           businesses in finance, healthcare, education, and more, to drive
           innovation and achieve their strategic goals with cutting-edge
           solutions.
         </p>
       </div>
-      <div className="scrolling-container-idws" ref={scrollRef}>
+      <div className="scrolling-container-idws-1" ref={scrollRef}>
         {industriesdouble.map((industry, index) => (
           <div key={index} className=" p-3">
-            <div className="card d-flex flex-column">
+            <div className="card-1 d-flex flex-column">
               <h3>{industry.title}</h3>
               <p>{industry.description}</p>
-              <div className="features mt-auto">
+              <div className="features-1 mt-auto">
                 {industry.features.map((feature, idx) => (
-                  <div key={idx} className="feature-tag">
+                  <div key={idx} className="feature-tag-1">
                     {feature}
                   </div>
                 ))}

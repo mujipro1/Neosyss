@@ -1,23 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import FAQ from "./Utils/FAQ";
 import SpecializedSolutions from "./Utils/SpecializedSolutions";
-import SecondNavbar from "../Utilities/SecondNavbar";
+import MyNav from "../Utilities/Navbar";
 import Footer from "../Utilities/Footer";
 import TechWeUseSingle from "./Utils/TechWeUseSingle";
 import SolutionsData from "../data/SolutionsData";
 import FAQData from "../data/FAQData";
 import ServiceHome from "./Utils/ServiceHome";
-import DevelopmentProcess from "../HomePage/DevelopmentProcess";
-
+import Frameworks from "./Utils/Frameworks";
+import frameworksData from "../data/FrameworksData";
+import devProcessData from "../data/ServicesSteps";
+import Revolve from "./Utils/Revolve";
 
 const WebDev = () => {
 
   const webDevelopmentData = SolutionsData.find(data => data.category === "Web Development");
-  const webDevelopmentFAQ = FAQData.find(data => data.category === "AI Development");
+  const webDevelopmentFAQ = FAQData.find(data => data.category === "Web");
   
+  const WebFrData = frameworksData.find(data => data.category === "Web");
+  const WebDevPData = devProcessData.find(data => data.category === "Web Development");
+  
+  const tagline = "Our web application development process includes comprehensive project planning, UI/UX design, frontend and backend development, quality assurance, and deployment, ensuring your solution is robust and ready for scale."
     return (
         <div className="service-body">
-        <SecondNavbar />        
+        <MyNav />        
         <div className=" pb-5">
         <ServiceHome
           image="/Services/Web development.png"
@@ -38,7 +44,12 @@ const WebDev = () => {
             <SpecializedSolutions data={webDevelopmentData.solutions} 
             heading="Specialized Solutions for Web Applications"/>
             <TechWeUseSingle field={"Web Platforms"}/>
-            <DevelopmentProcess />
+          <Revolve data={WebDevPData.data} tagline={tagline} />
+            
+            <Frameworks heading={"Full Stack Frameworks"} 
+            subheading={"Neosyss leverages a modern technology stack to ensure reliability, security, and performance across all web applications. Our solutions are designed to be flexible, integrating seamlessly with client systems and workflows."}
+            frameworks={WebFrData.frameworks}/>
+
             <FAQ data={webDevelopmentFAQ.data}/>
         </div>
         <Footer />

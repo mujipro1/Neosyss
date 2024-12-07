@@ -1,22 +1,38 @@
-export const GIS = [
+const devProcessData = [
     {
-        heading: "GIS / Cartography Solutions",
-        content: "We provide specialized solutions for real-world applications of GIS.",
-        image: "/Services/GIS.png",
+    category : "GIS",
+    data : ['Understanding', 'Research', 'Conceptualization', 'Design & Plan', 'Build & Develop', 'Validate & Refine', 'Launch & Deploy', 'Maintain & Grow'],
     },
     {
-        heading: "GIS / Cartography Solutions",
-        content: "We provide specialized solutions for real-world applications of GIS.",
-        image: "/Services/GIS.png",
+    category : "Web Development",
+    data : ['Understanding', 'Research', 'Conceptualization', 'Design & Plan', 'Build & Develop', 'Validate & Refine', 'Launch & Deploy', 'Maintain & Grow'],
     },
     {
-        heading: "GIS / Cartography Solutions",
-        content: "We provide specialized solutions for real-world applications of GIS.",
-        image: "/Services/GIS.png",
+    category : "Mobile App",
+    data : ['Understanding', 'Research', 'Conceptualization', 'Design & Plan', 'Build & Develop', 'Validate & Refine', 'Launch & Deploy', 'Maintain & Grow'],
     },
     {
-        heading: "GIS / Cartography Solutions",
-        content: "We provide specialized solutions for real-world applications of GIS.",
-        image: "/Services/GIS.png",
+    category : "Blockchain",
+    data : ['Understanding', 'Research', 'Conceptualization', 'Design & Plan', 'Build & Develop', 'Validate & Refine', 'Launch & Deploy', 'Maintain & Grow'],
+    },
+    {
+    category : "AI",
+    data: [
+        'Identify Pattern & Research',
+        'User Stories & Mapping',
+        'Wireframe & Frontend',
+        'Design & Train Model',
+        'Integrate & Test API',
+        'Develop & Debug Backend',
+        'Design & Review UI/UX',
+        'Deploy & Monitor'
+      ]
+      ,
     }
+
+
+
+
 ]
+
+export default devProcessData;

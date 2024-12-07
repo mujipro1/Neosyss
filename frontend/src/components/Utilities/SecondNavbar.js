@@ -4,7 +4,6 @@ import '../../styles/Navbar.css';
 import { useNavigate } from 'react-router-dom';
 
 const SecondNavbar = () => {
-  const [isAtTop, setIsAtTop] = useState(true); // Track if at the top of the page
   const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
   const [isHovering, setIsHovering] = useState(false); // Track hover state
@@ -21,9 +20,6 @@ const SecondNavbar = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.pageYOffset;
-
-      // Check if at the top of the page
-      setIsAtTop(currentScrollY === 0);
 
       if (!isHovering) {
         // Hide navbar on scroll down, show on scroll up
@@ -93,7 +89,7 @@ const SecondNavbar = () => {
 
   return (
     <nav
-    className={`navbar navbar-expand-lg ${isAtTop ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
+      className={`navbar navbar-expand-lg navbar-solid ${isNavbarVisible ? '' : 'navbar-hidden'}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => {
         setIsHovering(false);
@@ -110,7 +106,7 @@ const SecondNavbar = () => {
     >
       <div className="container">
         <a className="navbar-brand" href="/home">
-        <img src={isAtTop ? '/logowhite.png' : '/logo.png'} alt="Logo" className="navlogo" />
+          <img src="/logo.png" alt="Logo" className="navlogo" />
         </a>
 
         <button className="navbar-toggler" type="button" onClick={handleToggle} aria-expanded={isMenuOpen}>

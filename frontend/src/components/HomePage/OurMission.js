@@ -90,7 +90,7 @@ const OurMission = () => {
                 >
                   <h4>{section.title}</h4>
                   <span
-                    className={`arrow ${activeIndex === index ? "open" : ""}`}
+                    className={`arrow-x ${activeIndex === index ? "open" : ""}`}
                   >
                     <svg
                       width="30px"

@@ -62,12 +62,24 @@
   line-height: 1em;
 }
 
+.padding-5{
+  margin: 140px 0px;
+}
 
 @media (max-width:990px) {
   .top-sec-head{
-    font-size: 40px;
+    font-size: 35px;
     text-align: start;
     width: 80%;
+  }
+
+  .padding-5{
+    margin: 0px 20px 20px 20px;
+    width: 90%;
+  }
+
+  .top-sec{
+    margin: 100px 20px;
   }
   .top-sec-head div{
     width: 100%;
@@ -109,7 +121,7 @@
 
   .techweuse-services{
     background-color: white;
-    margin: 150px 0 100px 0;
+    margin: 150px 0 7 0px 0;
     padding: 60px 0;
   }
 
@@ -117,33 +129,55 @@
     color: var(--main);
     font-size: 30px;
     font-weight: bold;
-    margin: 20px 0;
-
   }
   .techweuse-col{
-    padding: 70px;
+    padding: 20px 70px 50px 70px;
   }
 
   .spec-pad{
-    padding: 40px;
+    padding: 40px 60px;
     margin: 0;
+  }
+
+  .dev-p-new{
+    width: 60%;
+    margin: 0 80px;
+    font-size: large;
   }
 
   @media (max-width: 768px) {
     .spec-pad{
         padding: 10px;
     }
+    .dev-p-new{
+      width: 90%;
+      margin: 0 22px;
+    }
     .techweuse-head{
-      padding: 0 30px;
+      padding: 0 37px;
     }
     .techweuse-head h1{
       font-size: 36px;
+      line-height: 1em;
+      width: 70%;
       font-weight: 700;
     }
+  
+    .SolutionsCard{
+      padding: 22px 25px;
+    }
+    .SolutionsCard h3{
+      font-size: 30px;
+      font-weight: 700;
+  }
+  
+  .SolutionsCard p{
+    font-size: 17px;
+  }
     
   .techweuse-services{
     background-color: white;
-    margin: 80px 0 100px 0;
+    margin: 80px 0 50px 0;
     padding: 60px 0;
   }
   

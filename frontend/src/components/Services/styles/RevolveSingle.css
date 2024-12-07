@@ -1,0 +1,95 @@
+.revolve-main{
+    background-color: #f2f6f7;
+    padding: 50px 0;
+}
+
+.circle-outer {
+    width: 12vw; /* Use viewport width for responsiveness */
+    height: 12vw; /* Keep height proportional to width */
+    background-color: rgb(162, 223, 226);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3.8vw;
+    transition: background-color 0.5s ease;
+}
+
+.circle-inner {
+    width: 10vw; /* Maintain proportionality */
+    height: 10vw;
+    background-color: #f2f6f7;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle-inner h1 {
+    color: rgb(182, 182, 182);
+    background-color: #f2f6f7;
+    width: 4vw; /* Scale width relative to screen */
+    font-size: 4vw; /* Use viewport-based font size */
+    text-align: center;
+    transform: translateY(-55%);
+    font-weight: 300;
+}
+
+.circle-inner p{
+    width: 80%;
+    transform: translateY(-50%);
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 95%;
+    text-align: center;
+    color: rgb(65, 135, 132);
+    word-wrap:break-word;
+}
+
+.revolve-head{
+    padding: 2% 10%;
+}
+.revolve-head h1{
+    font-weight: 700;
+    font-size: 3rem;
+    color: black;
+}
+
+
+
+.x-1{
+    transform: translateX(-5%);
+  }
+  
+  .x-2{
+    transform: translate(5%, -20%);
+  }
+
+  @media (max-width: 768px) {
+    .revolve-head h1{
+        font-weight: 700;
+        font-size: 2rem;
+        color: black;
+        line-height: 95%;
+    }
+    .circle-outer {
+        width: 24vw; 
+        height: 24vw; 
+        margin: 0 2vw;
+    }
+    .circle-inner{
+        width: 19vw;
+        height: 19vw;
+    }
+    .circle-inner h1{
+        font-size: 6vw;
+        width: 6vw;
+        transform: translateY(-60%);
+    }
+    .circle-inner p{
+        font-size: 3.5vw;
+        font-weight: 700;
+        transform: translateY(-30%);
+        line-height: 110%;
+    }
+  }

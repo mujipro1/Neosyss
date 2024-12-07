@@ -1,9 +1,9 @@
 /* General card styles */
 .card {
-  background:linear-gradient(-135deg, black, rgb(45, 45, 45));
+  background:linear-gradient(-135deg, rgba(234, 236, 239, 0.732), rgba(176, 179, 183, 0.693));
   outline: none;
   border:none;
-  color: white;
+  color: black;
   border-radius: 20px;
   transition: 0.3s ease-in-out;
   width:300px;
@@ -22,7 +22,7 @@
 /* Title inside each card */
 .card h3 {
   font-size: 1.5rem;
-  color:var(--main);
+  color:#2a2a2a;
   margin-bottom: 10px;
 }
 
@@ -53,17 +53,17 @@
 
 /* Feature tag inside each card */
 .feature-tag {
-  background-color: #5757578b;
+  background-color: #2d2d2d8b;
   border-radius: 20px;
   padding: 8px 12px;
   margin:5px;
   font-size: 0.85rem;
-  color: #bfbfbf;
+  color: #ebebeb;
   white-space: normal; /* Ensure feature tags break to the next line if too long */
 }
 
 .card:hover {
-  box-shadow: 0px 0px 0px 2px var(--main); /* Soft box-shadow on hover */
+  box-shadow: 0px 0px 0px 2px #4242428b; /* Soft box-shadow on hover */
 }
 
 
@@ -73,7 +73,7 @@
   overflow: hidden;
   width: 100%;
   height: auto; /* Remove the 100vh, cards should size based on content */
-  background-color: #000000;
+  background-color: #f2f6f7;
   /* padding: 20px 0 100px 0; Add some padding to top/bottom */
   /* margin-bottom: 200px; */
 }
@@ -84,21 +84,21 @@
 
 /* Section title */
 .idws-head {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   text-align: end;
   padding: 130px 35px 30px 0;
-  color: white;
+  color: rgb(63, 63, 63);
 }
 
 @media screen and (max-width: 768px) {
  /* Section title */
 .idws-head {
-  font-size: 2.5rem;
+  font-size: 36px;
   font-weight: 700;
   line-height: 2.3rem;
   text-align: start;
-  color: white;
+  color: rgb(63, 63, 63);
   padding-left:  25px;
 }
 .text-ind{
@@ -116,5 +116,5 @@
 
 .idws-main-cont{
   padding-bottom: 90px;
-  background-color: black;
+  background-color: #f2f6f7;
 }

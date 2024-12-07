@@ -1,6 +1,7 @@
 const TechWeUseData = {
     "Mobile Apps": {
       heading: "Mobile Apps",
+      tagline:"Neosyss leverages advanced mobile development tools and frameworks to ensure reliability, usability, and flexibility in all mobile applications. Our cross-platform approach enables cost-effective development with a focus on performance.",
       subOptions: {
         iOS: [
           { name: "Flutter", iconClass: "fab fa-flutter" },
@@ -18,7 +19,7 @@ const TechWeUseData = {
     },
     "Web Platforms": {
       heading: "Web Platforms",
-      tagline:"Neosyss leverages advanced mobile development tools and frameworks to ensure reliability, usability, and flexibility in all mobile applications. Our cross-platform approach enables cost-effective development with a focus on performance.",
+      tagline:"Neosyss leverages a modern technology stack to ensure reliability, security, and performance across all web applications. Our solutions are designed to be flexible, integrating seamlessly with client systems and workflows.",
       subOptions: {
         Frontend: [
           { name: "React js", iconClass: "fab fa-react" },
@@ -73,8 +74,8 @@ const TechWeUseData = {
     },
     "GIS / Cartography": {
       heading: "GIS / Cartography",
+      tagline: "Neosyss leverages advanced technology stacks for geospatial data handling, processing, and visualization to ensure reliability and accuracy in all GIS solutions.",
       subOptions: {
-        tagline: "Neosyss leverages advanced technology stacks for geospatial data handling, processing, and visualization to ensure reliability and accuracy in all GIS solutions.",
         Tools: [
           { name: "WebGis", iconClass: "fas fa-globe" },
           { name: "JS", iconClass: "fab fa-js" },

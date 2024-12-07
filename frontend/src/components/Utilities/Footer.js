@@ -57,12 +57,13 @@ const Footer = () => {
                     <div className="footer-content d-flex align-items-center my-3 mx-2 justify-content-center text-start flex-column">
                         <div>
                             <div className="mb-3 footer-head">Services</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>AI & Machine Learning</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>Mobile App Development</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>Web Development</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>GIS</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>UI/UX</div>
-                            <div className="list-item" onClick={() => scrollToSection('services')}>Custom Software</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services/AI/')}>AI & Machine Learning</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services/mobileApp/')}>Mobile App Development</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services/WebDev/')}>Web Development</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services/GIS/')}>GIS</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services/Blockchain/')}>Blockchain</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services')}>UI/UX</div>
+                            <div className="list-item" onClick={() => handleNavigate('/services')}>Custom Software</div>
                         </div>
                     </div>
                 </div>

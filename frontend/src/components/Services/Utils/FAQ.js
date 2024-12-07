@@ -28,10 +28,11 @@ const FAQ = ({data}) => {
     return (
         <>
         <div className="row my-5 py-5 spec-pad">
-            <div className="techweuse-head pt-5 px-3">
-                <h1><span className=" head-highlight">Frequently</span> Asked <span className=" head-highlight">Questions</span></h1>
+            <div className="techweuse-head d-flex text-center flex-column align-items-center pt-5 px-3">
+                <h1>F.A.Q's</h1>
+                <h6><span style={{color:"#888"}}>Do you have additional questions?</span></h6>
             </div>
-            <div className="col-md-6 order-md-1 d-flex justify-content-center align-items-center order-2">
+            <div className="col-lg-6 offset-lg-3 d-flex justify-content-center align-items-center order-2">
             <div className="accordion-container mt-5">
                 {data.map((section, index) => (
                 <div key={index} className="accordion-section">
@@ -41,7 +42,7 @@ const FAQ = ({data}) => {
                     >
                     <h4>{section.question}</h4>
                     <span
-                        className={`arrow ${activeIndex === index ? "open" : ""}`}
+                        className={`arrow-x ${activeIndex === index ? "open" : ""}`}
                     >
                         <svg
                         width="30px"
@@ -67,13 +68,7 @@ const FAQ = ({data}) => {
             </div>
             </div>
 
-            <div className="col-md-6 order-md-2 p-5  order-1">
-            <img
-                src="/Services/FAQs.png"
-                alt="FAQs"
-                className="img-fluid"
-            />
-            </div>
+           
         </div>
         </>
     );

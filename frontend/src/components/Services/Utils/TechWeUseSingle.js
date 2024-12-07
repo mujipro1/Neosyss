@@ -13,22 +13,22 @@ const TechWeUseSingle = ({field}) => {
          <div className="techweuse-services">
             <div className="col-md-7 techweuse-head offset-md-2">
                 <h1>Technologies <span className=" head-highlight">We</span> Use</h1>
-                <p className="py-3">{TechWeUseData[`${field}`].tagline}</p>
+                <p style={{fontSize:'large'}}className="py-3">{TechWeUseData[`${field}`].tagline}</p>
             </div>
             {/* tech we use */}
             {isDesktop && (
-                <div className="col-md-8 offset-md-2 d-flex justify-content-center techweuse-col">
+                <div className="col-md-8 offset-md-2  techweuse-col">
                     {Object.keys(TechWeUseData[`${field}`].subOptions).map(
                     (subHeading) => (
                         <div key={subHeading}>
-                        {/* <h4>{subHeading}</h4> */}
+                        {subHeading == "Tools" ? null : <h4 className="px-3 pt-3"><strong>{subHeading}</strong></h4>}
                         <div className="mb-4">
                             {TechWeUseData[`${field}`].subOptions[subHeading].map(
                             (tech) => (
                                 <IconButton
                                 text={tech.name}
                                 iconClass={tech.iconClass}
-                                key={`${subHeading}-${tech.name}`} // Use a unique key combining subHeading and tech.name
+                                key={`${subHeading}-${tech.name}`}
                                 />
                             )
                             )}
