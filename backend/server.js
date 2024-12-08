@@ -8,7 +8,12 @@ const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',  // Allow requests from the React app's port
+  methods: 'GET,POST,PUT,DELETE',  // Allow specific HTTP methods
+  credentials: true,               // If needed, for cookies/session data
+}));
+
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
