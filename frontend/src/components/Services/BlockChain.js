@@ -11,6 +11,7 @@ import devProcessData from "../data/ServicesSteps";
 import Frameworks from "./Utils/Frameworks";
 import frameworksData from "../data/FrameworksData";
 import Revolve from "./Utils/Revolve";
+import ContactUsCard from "../Utilities/ContactUsCard";
 
 const BlockChain = () => {
 
@@ -52,6 +53,7 @@ const BlockChain = () => {
             
             <FAQ data={BlockChainDevelopmentFAQ.data}/>
         </div>
+        <ContactUsCard/>
         <Footer />
         </div>
     );

@@ -98,18 +98,18 @@ const Revolve = ({data, tagline}) => {
       <>
     <div className="row mt-5">
       <div className="d-flex justify-content-center">
-        <RevolveSingle number={1} color={colors[0]} content={data[1]} />
-        <RevolveSingle number={2} color={colors[1]} content={data[2]} />
-        <RevolveSingle number={3} color={colors[2]} content={data[3]} />
+        <RevolveSingle number={1} color={colors[0]} content={data[0]} />
+        <RevolveSingle number={2} color={colors[1]} content={data[1]} />
+        <RevolveSingle number={3} color={colors[2]} content={data[2]} />
       </div>
       <div className="d-flex justify-content-center">
-        <RevolveSingle number={4} color={colors[3]} content={data[4]} />
-        <RevolveSingle number={5} color={colors[4]} content={data[5]} />
+        <RevolveSingle number={4} color={colors[3]} content={data[3]} />
+        <RevolveSingle number={5} color={colors[4]} content={data[4]} />
       </div>
       <div className="d-flex justify-content-center">
-        <RevolveSingle number={6} color={colors[5]} content={data[6]} />
-        <RevolveSingle number={7} color={colors[6]} content={data[7]} />
-        <RevolveSingle number={8} color={colors[7]} content={data[8]} />
+        <RevolveSingle number={6} color={colors[5]} content={data[5]} />
+        <RevolveSingle number={7} color={colors[6]} content={data[6]} />
+        <RevolveSingle number={8} color={colors[7]} content={data[7]} />
       </div>
     </div>
     </>

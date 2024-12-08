@@ -9,7 +9,10 @@ const SecondNavbar = () => {
   const [isHovering, setIsHovering] = useState(false); // Track hover state
   const [isPanelOpen, setIsPanelOpen] = useState(false); // Track if contact form panel is open
   const timeoutRef = useRef(null); // Reference to manage the timeout
-
+  const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const [isExtendedNavbarHovered, setIsExtendedNavbarHovered] = useState(false);
+  const delayRef = useRef(null); // Reference for delay timer
+  
   const openPanel = () => setIsPanelOpen(true);
   const closePanel = () => setIsPanelOpen(false);
 
@@ -19,46 +22,19 @@ const SecondNavbar = () => {
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
-      const currentScrollY = window.pageYOffset;
-
-      if (!isHovering) {
-        // Hide navbar on scroll down, show on scroll up
-        if (currentScrollY > lastScrollY) {
-          setIsNavbarVisible(false);
-        } else if (currentScrollY < lastScrollY) {
-          setIsNavbarVisible(true);
-        }
-
-        // Clear any existing timeout
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
-
-        // Hide the navbar after a timeout if not hovering
-        timeoutRef.current = setTimeout(() => {
-          if (!isHovering && currentScrollY === window.pageYOffset) {
-            setIsNavbarVisible(false);
-          }
-          if (currentScrollY === 0) {
-            setIsNavbarVisible(true);
-          }
-        }, 1500);
-      } else {
-        setIsNavbarVisible(true); // Ensure navbar stays visible while hovering
+      if (!isHovering && !isServicesHovered && !isExtendedNavbarHovered) {
+        const currentScrollY = window.pageYOffset;
+        setIsNavbarVisible(currentScrollY < lastScrollY || currentScrollY === 0); // Ensure navbar stays visible at top
+        lastScrollY = currentScrollY;
       }
-
-      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
     };
-  }, [isHovering]);
+  }, [isHovering, isServicesHovered, isExtendedNavbarHovered]);
 
   // Scroll to a section
   const scrollToSection = (sectionId) => {
@@ -66,6 +42,38 @@ const SecondNavbar = () => {
     if (section) {
       const offsetTop = section.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
+  // Handle hover events for "Services" link
+  const handleServicesMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    clearTimeout(delayRef.current);
+    delayRef.current = setTimeout(() => {
+      setIsServicesHovered(true);
+    }, 100); // 0.2s delay before showing the extended navbar
+  };
+
+  const handleServicesMouseLeave = () => {
+    clearTimeout(delayRef.current);
+    timeoutRef.current = setTimeout(() => {
+      if (!isExtendedNavbarHovered) {
+        setIsServicesHovered(false);
+      }
+    }, 300); // Keep the existing 0.5s delay for hiding
+  };
+
+  // Handle hover events for the extended navbar
+  const handleExtendedNavbarMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setIsExtendedNavbarHovered(true);
+  };
+
+  const handleMouseLeaveExpandedNavbar = (event) => {
+    // Check if the mouse is leaving the expanded navbar area
+    if (!event.relatedTarget || !event.relatedTarget.closest('.expanded-navbar')) {
+      setIsExtendedNavbarHovered(false);  // Hide the extended navbar
+      setIsServicesHovered(false);        // Hide the services hover state
     }
   };
 
@@ -122,17 +130,8 @@ const SecondNavbar = () => {
             <li className="nav-item">
               <a className="nav-link" href="/home" onClick={handleLinkClick}>Home</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" onClick={() => { scrollToSection('services'); handleLinkClick(); }}>Services</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
+            <li className="nav-item" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave} onClick={() => navigate('/services/')}>
+              <a className="nav-link">Services</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" onClick={() => { navigate('/blogs/all/') }}>Blogs</a>
@@ -143,6 +142,41 @@ const SecondNavbar = () => {
           </ul>
         </div>
       </div>
+
+      {/* Expanded Navbar Section */}
+      {(isServicesHovered || isExtendedNavbarHovered) && (
+        <div
+          className={`expanded-navbar ${isServicesHovered || isExtendedNavbarHovered ? 'visible' : ''}`}
+          onMouseEnter={handleExtendedNavbarMouseEnter}
+          onMouseLeave={handleMouseLeaveExpandedNavbar} // Updated handler
+        >
+          <div className="expanded-content container">
+            <div className="extended-column">
+              <h3 style={{ color: 'var(--main)' }}>Our Services</h3>
+              <p style={{ color: 'black' }}>
+                Explore our wide range of services designed to meet your needs.
+              </p>
+              <button className="learn-more-btn" onClick={() => navigate('/services')}>
+                Learn More<span style={{ marginLeft: '10px' }}>→</span>
+              </button>
+            </div>
+            <div className="extended-column extended-column-1 pad-s">
+              <ul>
+                <li><a href="/services/AI"><span className="right-arrow-ex">→</span>  Artificial Intelligence</a></li>
+                <li><a href="/services/WebDev"><span className="right-arrow-ex">→</span>  Website Development</a></li>
+                <li><a href="/services/MobileApp"><span className="right-arrow-ex">→</span>  Mobile Applications</a></li>
+              </ul>
+            </div>
+            <div className="extended-column extended-column-1">
+              <ul>
+                <li><a href="/services/GIS"><span className="right-arrow-ex">→</span>  GIS/Cartography</a></li>
+                <li><a href="/services/Blockchain"><span className="right-arrow-ex">→</span>  Blockchain Solutions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
       <ContactForm isOpen={isPanelOpen} onClose={closePanel} />
     </nav>
   );

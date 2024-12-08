@@ -17,7 +17,7 @@
 .main-services-col{
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 2.2vw;
 }
 
 .main-services-card{
@@ -38,9 +38,9 @@
 
 .main-services-card h3{
     font-weight: bold;
-    font-size: 35px;
+    font-size: 2.3vw;
     color: rgba(28, 34, 32, 0.87);
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     margin-bottom: 5px;
 }
@@ -66,7 +66,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
     .main-services-head{
         width: 85%;
         margin-top: 10px;

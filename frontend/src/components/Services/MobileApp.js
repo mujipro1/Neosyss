@@ -11,6 +11,7 @@ import devProcessData from "../data/ServicesSteps";
 import Frameworks from "./Utils/Frameworks";
 import frameworksData from "../data/FrameworksData";
 import Revolve from "./Utils/Revolve";
+import ContactUsCard from "../Utilities/ContactUsCard";
 
 
 const MobileApp = () => {
@@ -51,6 +52,7 @@ const MobileApp = () => {
             
             <FAQ data={mobileDevelopmentFAQ.data}/>
         </div>
+        <ContactUsCard/>
         <Footer />
         </div>
     );

@@ -1,86 +1,58 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ContactForm from '../HomePage/ContactForm'; // Contact form component
+import ContactForm from '../HomePage/ContactForm';
 import '../../styles/Navbar.css';
 import { useNavigate } from 'react-router-dom';
 
 const MyNav = ({ devProcessRef = null }) => {
-  const [isAtTop, setIsAtTop] = useState(true); // Track if at the top of the page
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true); // Track navbar visibility
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track if the menu is open
-  const [isHovering, setIsHovering] = useState(false); // Track hover state
-  const [isInDevProcess, setIsInDevProcess] = useState(false); // Track if "dev-process" is in view
-  const topSectionRef = useRef(null); // Reference to top section for intersection observer
-  const [isPanelOpen, setIsPanelOpen] = useState(false); // Track if contact form panel is open
-  const timeoutRef = useRef(null); // Reference for timeout
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isInDevProcess, setIsInDevProcess] = useState(false);
+  const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const [isExtendedNavbarHovered, setIsExtendedNavbarHovered] = useState(false);
+  const topSectionRef = useRef(null);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const timeoutRef = useRef(null); // To manage the timeout
+  const delayRef = useRef(null); // Reference for delay timer
+
+  const navigate = useNavigate();
 
   const openPanel = () => setIsPanelOpen(true);
   const closePanel = () => setIsPanelOpen(false);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     const topSectionNode = topSectionRef.current;
 
-    // Observer for detecting if at the top of the page
     const observer = new IntersectionObserver(([entry]) => {
       setIsAtTop(entry.isIntersecting);
     });
-    if (topSectionNode) {
-      observer.observe(topSectionNode);
-    }
+    if (topSectionNode) observer.observe(topSectionNode);
 
     let lastScrollY = window.pageYOffset;
 
     const handleScroll = () => {
       if (isInDevProcess) {
-        setIsNavbarVisible(false); // Navbar always hidden in dev-process
+        // Immediately hide navbar if in dev process
+        setIsNavbarVisible(false);
         return;
       }
 
-      if (!isHovering) {
+      if (!isHovering && !isServicesHovered && !isExtendedNavbarHovered) {
         const currentScrollY = window.pageYOffset;
-
-        // If scrolling down, hide the navbar
-        if (currentScrollY > lastScrollY) {
-          setIsNavbarVisible(false);
-        } else if (currentScrollY < lastScrollY) {
-          setIsNavbarVisible(true);
-        }
-
-        // Clear any existing timeout
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-        }
-
-        // Hide the navbar after a timeout if not hovering
-        timeoutRef.current = setTimeout(() => {
-          if (!isHovering && currentScrollY === window.pageYOffset) {
-            setIsNavbarVisible(false);
-          }
-          if (window.pageYOffset === 0) {
-            setIsNavbarVisible(true);
-          }
-        }, 1500);
-      } else {
-        setIsNavbarVisible(true); // Ensure navbar stays visible while hovering
+        setIsNavbarVisible(currentScrollY < lastScrollY || currentScrollY === 0);
+        lastScrollY = currentScrollY;
       }
-
-      lastScrollY = window.pageYOffset;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      if (topSectionNode) {
-        observer.unobserve(topSectionNode);
-      }
+      if (topSectionNode) observer.unobserve(topSectionNode);
     };
-  }, [isHovering, isInDevProcess]);
-
+  }, [isHovering, isInDevProcess, isServicesHovered, isExtendedNavbarHovered]);
+  
   useEffect(() => {
     if (!devProcessRef) return; // If devProcessRef is null, skip this effect
 
@@ -100,7 +72,37 @@ const MyNav = ({ devProcessRef = null }) => {
     }
   }, [devProcessRef]);
 
-  // Scroll to a section
+  // Handle hover events for "Services" link
+  const handleServicesMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    clearTimeout(delayRef.current);
+    delayRef.current = setTimeout(() => {
+      setIsServicesHovered(true);
+    }, 100); // 0.2s delay before showing the extended navbar
+  };
+
+  const handleServicesMouseLeave = () => {
+    clearTimeout(delayRef.current);
+    timeoutRef.current = setTimeout(() => {
+      if (!isExtendedNavbarHovered) {
+        setIsServicesHovered(false);
+      }
+    }, 300); // Keep the existing 0.5s delay for hiding
+  };
+
+  // Handle hover events for the extended navbar
+  const handleExtendedNavbarMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setIsExtendedNavbarHovered(true);
+  };
+
+  const handleExtendedNavbarMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsExtendedNavbarHovered(false);
+      setIsServicesHovered(false);
+    }, 500);
+  };
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -109,34 +111,23 @@ const MyNav = ({ devProcessRef = null }) => {
     }
   };
 
-  // Toggle the menu visibility
-  const handleToggle = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-  // Reset hover state and allow scroll behavior after clicking a link
-  const handleLinkClick = () => {
-    setIsHovering(false);
-    setTimeout(() => {
-      if (!isHovering) {
-        setIsNavbarVisible(false);
-      }
-    }, 150);
-  };
-
   return (
     <div ref={topSectionRef}>
       <nav
-        className={`navbar navbar-expand-lg ${isAtTop ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
+        className={`navbar navbar-expand-lg ${isAtTop && !isServicesHovered && !isExtendedNavbarHovered ? 'navbar-transparent' : 'navbar-solid'} ${isNavbarVisible ? '' : 'navbar-hidden'}`}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
-            <img src={isAtTop ? '/logowhite.png' : '/logo.png'} alt="Logo" className="navlogo" />
+            <img
+              src={isAtTop && !isServicesHovered && !isExtendedNavbarHovered ? '/logowhite.png' : '/logo.png'}
+              alt="Logo"
+              className="navlogo"
+            />
           </a>
 
-          <button className="navbar-toggler" type="button" onClick={handleToggle} aria-expanded={isMenuOpen}>
+          <button className="navbar-toggler" type="button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-expanded={isMenuOpen}>
             <div className="toggle-btn">
               <div className="bar"></div>
               <div className="bar"></div>
@@ -147,29 +138,63 @@ const MyNav = ({ devProcessRef = null }) => {
           <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mx-4">
               <li className="nav-item">
-                <a className="nav-link" href="/home" onClick={handleLinkClick}>Home</a>
+                <a className="nav-link" href="/home">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { scrollToSection('mission'); handleLinkClick(); }}>Our Mission</a>
+                <a className="nav-link" onClick={() => { scrollToSection('mission'); }}>Our Mission</a>
+              </li>
+              <li className="nav-item" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave} onClick={() => navigate('/services/')}
+              ><a className="nav-link">Services</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { navigate('/services'); }}>Services</a>
+                <a className="nav-link" onClick={() => { scrollToSection('technologies'); }}>Technologies</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { scrollToSection('technologies'); handleLinkClick(); }}>Technologies</a>
+                <a className="nav-link" onClick={() => { scrollToSection('industries'); }}>Industries</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { scrollToSection('industries'); handleLinkClick(); }}>Industries</a>
+                <a className="nav-link" onClick={() => navigate('/blogs/all/')}>Blogs</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={() => { navigate('/blogs/all/') }}>Blogs</a>
-              </li>
-              <li className="nav-item">
-                <a id="contact" className="nav-link" onClick={() => { openPanel(); handleLinkClick(); }} style={{ cursor: 'pointer' }}>Contact</a>
+                <a id="contact" className="nav-link" onClick={openPanel} style={{ cursor: 'pointer' }}>Contact</a>
               </li>
             </ul>
           </div>
         </div>
+
+        {/* Expanded Navbar Section */}
+        {(isServicesHovered || isExtendedNavbarHovered) && (
+          <div
+            className={`expanded-navbar ${isServicesHovered || isExtendedNavbarHovered ? 'visible' : ''}`}
+            onMouseEnter={handleExtendedNavbarMouseEnter}
+            onMouseLeave={handleExtendedNavbarMouseLeave}
+          >
+            <div className="expanded-content container">
+              <div className="extended-column">
+                <h3 style={{ color: 'var(--main)' }}>Our Services</h3>
+                <p style={{ color: 'black' }}>
+                  Explore our wide range of services designed to meet your needs.
+                </p>
+                <button className="learn-more-btn" onClick={() => navigate('/services')}>
+                  Learn More<span style={{ marginLeft: '10px' }}>→</span>
+                </button>
+              </div>
+              <div className="extended-column extended-column-1 pad-s">
+                <ul>
+                  <li><a href="/services/AI"><span className="right-arrow-ex">→</span>  Artificial Intelligence</a></li>
+                  <li><a href="/services/WebDev"><span className="right-arrow-ex">→</span>  Website Development</a></li>
+                  <li><a href="/services/MobileApp"><span className="right-arrow-ex">→</span>  Mobile Applications</a></li>
+                </ul>
+              </div>
+              <div className="extended-column extended-column-1">
+                <ul>
+                  <li><a href="/services/GIS"><span className="right-arrow-ex">→</span>  GIS/Cartography</a></li>
+                  <li><a href="/services/Blockchain"><span className="right-arrow-ex">→</span>  Blockchain Solutions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       <ContactForm isOpen={isPanelOpen} onClose={closePanel} />

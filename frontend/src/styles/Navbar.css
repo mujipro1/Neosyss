@@ -4,8 +4,10 @@
     top: 0;
     left: 0;
     z-index: 1003;
+    padding:0;
+    padding-top: 5px;
     transition: all .5s ease-in-out;
-    transition: background-color 0.4s, top 0.4s;
+    transition: background-color 0s, top 0.4s;
   }
   
   .navbar-transparent {
@@ -114,4 +116,76 @@
   .navlogo{
     width: auto;
     height: 50px;
+  }
+
+
+
+
+
+
+
+  .expanded-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px 0;
+    opacity: 1;
+    /* visibility: visible; */
+    transition: all 4s ease-in-out;
+  }
+  
+  .expanded-navbar.hidden {
+    opacity: 0;
+    top: -100%;
+    /* visibility: hidden; */
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .expanded-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .extended-column {
+    flex: 3;
+    padding: 0 15px;
+  }
+  .extended-column-1 {
+    flex: 2;
+    padding: 0 15px;
+  }
+  
+  .learn-more-btn {
+    background-color: white;
+    color: var(--main);
+    border: none;
+    cursor: pointer;
+  }
+  .learn-more-btn:hover {
+    color: #016a74;
+  }
+  .right-arrow-ex{
+    color: var(--main);
+  }
+.pad-s{
+  padding-left: 5vw;
+}
+  .extended-column ul li{
+    list-style-type: none;
+  }
+  
+  .extended-column ul li a{
+    text-decoration: none;
+    color: black;
+  }
+
+  
+  .extended-column ul li a:hover{
+    color: var(--main);
   }

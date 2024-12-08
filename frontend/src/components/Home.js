@@ -11,6 +11,7 @@ import OurMission from './HomePage/OurMission';
 import Footer from './Utilities/Footer';
 import Loading from './Utilities/Loading';
 import ScrollToTopButton from './HomePage/ScrollToTopButton';
+import ContactUsCard from './Utilities/ContactUsCard';
 
 const slides = [
   {
@@ -77,6 +78,7 @@ const Home = () => {
             <img src="/lines.png" alt="Blog" className="blog-lines" />
           </div>
           <Blogs />
+          <ContactUsCard/>
           <Footer />
         </>
       )}

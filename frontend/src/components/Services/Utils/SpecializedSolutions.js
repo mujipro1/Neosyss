@@ -5,8 +5,8 @@ import "../styles/SolutionsCard.css";
 
 const SpecializedSolutions = ({ data, heading }) => {
   // Check for mobile/tablet and desktop screen sizes
-  const isMobile = useMediaQuery({ maxWidth: 768 });  // For mobile or tablet
-  const isDesktop = useMediaQuery({ minWidth: 1024 }); // For desktop
+  const isMobile = useMediaQuery({ maxWidth: 980 });  // For mobile or tablet
+  const isDesktop = useMediaQuery({ minWidth: 980 }); // For desktop
 
   return (
     <div className="row spec-pad blue-body">

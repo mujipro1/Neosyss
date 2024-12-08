@@ -14,7 +14,7 @@ const LoadingSkeleton = () => {
 
     <div className="loading-skeleton">
         <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-8 px-2">
                 <div className="skeleton pic-large"></div>
                 <div className="skeleton heading-large-sk"></div>
                 <div className="skeleton desc-large-sk"></div>

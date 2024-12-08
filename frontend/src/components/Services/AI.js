@@ -9,6 +9,7 @@ import FAQData from "../data/FAQData";
 import ServiceHome from "./Utils/ServiceHome";
 import devProcessData from "../data/ServicesSteps";
 import Revolve from "./Utils/Revolve";
+import ContactUsCard from "../Utilities/ContactUsCard";
 
 
 const AI = () => {
@@ -49,6 +50,7 @@ const AI = () => {
 
             <FAQ data={aiDevelopmentFAQ.data}/>
         </div>
+        <ContactUsCard/>
         <Footer />
         </div>
     );

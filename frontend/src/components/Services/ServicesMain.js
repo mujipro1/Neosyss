@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SecondNavbar from "../Utilities/SecondNavbar";
 import "../Services/styles/ServicesMain.css";
 import Footer from "../Utilities/Footer";
+import ContactUsCard from "../Utilities/ContactUsCard";
 
 const data = [
     { id: 1, title: "Artificial Intelligence", img: "/Services/AIcard.png", link: "/services/AI" },
@@ -54,7 +55,7 @@ const ServicesMain = () => {
                     </>
                 ))}
             </div>
-
+            <ContactUsCard/>
             <Footer />
         </div>
     );

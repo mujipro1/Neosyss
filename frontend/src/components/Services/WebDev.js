@@ -11,6 +11,7 @@ import Frameworks from "./Utils/Frameworks";
 import frameworksData from "../data/FrameworksData";
 import devProcessData from "../data/ServicesSteps";
 import Revolve from "./Utils/Revolve";
+import ContactUsCard from "../Utilities/ContactUsCard";
 
 const WebDev = () => {
 
@@ -52,6 +53,7 @@ const WebDev = () => {
 
             <FAQ data={webDevelopmentFAQ.data}/>
         </div>
+        <ContactUsCard/>
         <Footer />
         </div>
     );

@@ -24,7 +24,7 @@
 }
 
 .SolutionsCard h3{
-    font-size: 35px;
+    font-size: 2.2vw;
     font-weight: 700;
     margin-bottom: 20px;
     color: var(--main);
@@ -40,14 +40,14 @@
 
 .service-tag-top{
     width: 75%;
-    font-size: 30px;
+    font-size: 2vw;
     padding:10px;
   }
   .top-sec{
     margin: 140px 0px;
 }
 .top-sec-head{
-  font-size: 80px;
+  font-size: 5vw;
   font-weight: 700;
   text-align: right;
   display: flex;
@@ -103,7 +103,7 @@
     font-weight: 700;
     line-height: 1em;
     height: 200px;
-    font-size: 55px;
+    font-size: 3.5vw;
   }
   .sticky-column p {
     background: linear-gradient(125deg, var(--main), #000); /* Your gradient colors */
