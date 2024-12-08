@@ -49,10 +49,10 @@ if __name__ == "__main__":
         ("await fetch('/api/login'", "await fetch('http://localhost:5000/api/login'"),
         ('await axios.get("/api/blogs")', 'await axios.get("http://localhost:5000/api/blogs")'),
         ("await fetch('/api/contact'", "await fetch('http://localhost:5000/api/contact'"),
-        ("# DB_USER=root", "DB_USER=root"),
-        ("# DB_PASS=mysqlserver78", "DB_PASS=mysqlserver78"),
-        ("DB_USER=root1", "# DB_USER=root1"),
-        ("DB_PASS=37g3@UFGHD27mE", "# DB_PASS=37g3@UFGHD27mE"),
+        # ("# DB_USER=root", "DB_USER=root"),
+        # ("# DB_PASS=mysqlserver78", "DB_PASS=mysqlserver78"),
+        # ("DB_USER=root1", "# DB_USER=root1"),
+        # ("DB_PASS=37g3@UFGHD27mE", "# DB_PASS=37g3@UFGHD27mE"),
     ]
     
     # Specify the directory
